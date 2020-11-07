@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<h1><%= @prediction.name %></h1>
+<h2>Description: <%= @prediction.description %></h2>
+<h2>Probability in %: <%= @prediction.probability_in_percent %></h2>
 <%= link_to 'Edit', edit_prediction_path(@prediction) %> |
 <%= link_to 'Back', predictions_path %>
