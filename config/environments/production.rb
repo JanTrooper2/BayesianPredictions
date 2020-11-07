@@ -111,6 +111,6 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   #Devise
-  #config.action_mailer.default_url_options = { host: 'guarded-crag-12462.herokuapp.com', port: 443 }
+  config.action_mailer.default_url_options = { host: 'guarded-crag-12462.herokuapp.com', port: 443 }
 
 end

@@ -36,6 +36,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'devise'
 end
 
 group :development do
