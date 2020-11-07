@@ -1,28 +1,35 @@
 <p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+  <%= render 'navbar' %>
+  <h1>Predictions</h1>
 
-<h1>Predictions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="1">Name </th>
-      <th colspan="1">Probability in % </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @predictions.each do |prediction| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= prediction.name %></td>
-        <td><%= prediction.probability_in_percent %></td>
-        <td><%= link_to 'Show', prediction %></td>
-        <td><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
-        <td><%= link_to 'Destroy', prediction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th colspan="1">Name </th>
+        <th colspan="1">Probability in % </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @predictions.each do |prediction| %>
+        <tr>
+          <td><%= prediction.name %></td>
+          <td><%= prediction.probability_in_percent %></td>
+          <td><%= link_to 'Show', prediction %></td>
+          <td><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
+          <td><%= link_to 'Destroy', prediction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Prediction', new_prediction_path %>
+  <br>
+
+  <%= link_to 'New Prediction', new_prediction_path %>
+<% else %>
+  <h1>Welcome to Bayesian Predictions!</h1>
+  <p>Please Login here: <%= link_to "Login", new_user_session_path %> </p>
+  <p>Or Sign Up here: <%= link_to "Sign Up", new_user_registration_path %> </p>
+
+<% end %>
