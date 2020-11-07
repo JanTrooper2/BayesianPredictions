@@ -20,6 +20,8 @@
     <%#= time_field(:prediction, :expiration_date) %>
     <%= label_tag(:probability_in_percent, "Prediction Probability:") %>
     <%= form.select(:probability_in_percent, options_for_select([[5], [10], [15], [20], [25], [30], [35], [40], [45], [50], [55], [60], [65], [70], [75], [80], [85], [90], [95]], 1)) %>
+    <%= label_tag(:expiration_date, "Prediction Expiration Date:") %>
+    <%= date_field(:prediction, :expiration_date) %>
     <%= form.hidden_field(:user_id, value: current_user.id) %>
   </div>
   <div class="actions">

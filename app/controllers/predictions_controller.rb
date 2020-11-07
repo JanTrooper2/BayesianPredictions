@@ -71,6 +71,6 @@ class PredictionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def prediction_params
-      params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id)
+      params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id, :expiration_date)
     end
 end
