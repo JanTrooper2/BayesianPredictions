@@ -4,7 +4,9 @@ class PredictionsController < ApplicationController
   # GET /predictions
   # GET /predictions.json
   def index
-    @predictions = current_user.predictions
+    if current_user.signed_in?
+      @predictions = current_user.predictions
+    end
   end
 
   # GET /predictions/1
