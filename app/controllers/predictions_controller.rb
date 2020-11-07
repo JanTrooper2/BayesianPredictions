@@ -4,7 +4,7 @@ class PredictionsController < ApplicationController
   # GET /predictions
   # GET /predictions.json
   def index
-    @predictions = Prediction.all
+    @predictions = current_user.predictions
   end
 
   # GET /predictions/1
@@ -69,6 +69,6 @@ class PredictionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def prediction_params
-      params.require(:prediction).permit(:name, :description, :probability_in_percent)
+      params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id)
     end
 end
