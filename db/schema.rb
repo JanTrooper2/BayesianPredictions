@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_085527) do
     t.datetime "expiration_date"
     t.integer "probability_in_percent"
     t.boolean "outcome"
-    t.string "desctiption"
+    t.string "description"
   end
 
 end
