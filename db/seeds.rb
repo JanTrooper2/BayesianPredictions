@@ -1,3 +1,4 @@
+require 'open-uri'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -14,7 +15,7 @@ end
 
 
 def open_and_read_file
-  File.open("/home/jantrooper2/Projects/BayesianPredictions/db/scotts_predictions.txt", "r") do |f|
+  URI.open("https://pastebin.com/raw/en8UFUr2") do |f|
     descriptions = []
     @percentages = []
     outcomes = []
@@ -39,7 +40,6 @@ def open_and_read_file
     end
     f.each_line do |line|
       line = line.strip
-  
       if line.include? "<p>"
         next
       elsif line.include? "<s>"
