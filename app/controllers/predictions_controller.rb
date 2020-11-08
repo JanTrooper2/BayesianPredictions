@@ -5,7 +5,7 @@ class PredictionsController < ApplicationController
   # GET /predictions.json
   def index
     if user_signed_in?
-      @predictions = current_user.predictions
+      @predictions = current_user.predictions.select { |prediction| prediction.outcome == nil }
     end
   end
 
@@ -36,6 +36,11 @@ class PredictionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @prediction.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  def filter
+    if user_signed_in?
+      @predictions = current_user.predictions.select { |prediction| prediction.outcome != nil }
     end
   end
 
@@ -71,6 +76,6 @@ class PredictionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def prediction_params
-      params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id, :expiration_date)
+      params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id, :expiration_date, :outcome)
     end
 end

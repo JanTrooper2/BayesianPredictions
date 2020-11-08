@@ -9,7 +9,7 @@
         <th colspan="1">Name</th>
         <th colspan="1">Probability</th>
         <th colspan="1">Expiration Date</th>
-
+        <th colspan="1">Outcome</th>
       </tr>
     </thead>
 
@@ -19,6 +19,7 @@
           <td><%= prediction.name %></td>
           <td><%= prediction.probability_in_percent %>%</td>
           <td><%= prediction.expiration_date %></td>
+          <td><%= prediction.outcome %></td>
           <td><%= link_to 'Show', prediction %></td>
           <td><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
           <td><%= link_to 'Destroy', prediction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,7 +29,7 @@
   </table>
 
   <br>
-  <p><%= link_to 'Expired Predictions', predictions_filtered_path %></p>
+  <p><%= link_to 'Back', predictions_path %></p>
   <p><%= link_to 'New Prediction', new_prediction_path %></p>
 <% else %>
   <h1>Welcome to Bayesian Predictions!</h1>
