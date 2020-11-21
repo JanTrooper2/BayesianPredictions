@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+  <p>
+    <%= user.id%>:
+    <%= user.email%>
+    <%= link_to "Avatar", "http://localhost:3000#{url_for(user.avatar)}" if user.avatar.attached?%>
+    <%#= image_tag user.avatar if user.avatar.attached?%>
+  </p>
+<% end %>

@@ -1,3 +1,7 @@
 <nav>
-   <p>User: <%= current_user.email %>  <%= link_to "Logout", destroy_user_session_path, method: "delete" %></p>
+   <p>User: 
+   <%= current_user.email %>  
+   <%= link_to "Profile", "/profile/#{current_user.id}" %>
+   <%= link_to "Logout", destroy_user_session_path, method: "delete" %>
+   </p>
 </nav>
