@@ -113,4 +113,7 @@ Rails.application.configure do
   #Devise
   config.action_mailer.default_url_options = { host: 'guarded-crag-12462.herokuapp.com', port: 443 }
 
+  #Storage
+  config.active_storage.service = :amazon
+
 end
