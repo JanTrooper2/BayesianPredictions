@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 #Storage
 gem "aws-sdk-s3", require: false
+#HTTP requests
+gem 'rest-client'
+gem 'mime-types'
+gem 'netrc'
+gem 'http-accept'
+gem 'http-cookie'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -37,7 +43,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'devise'
 end
 
 group :development do
