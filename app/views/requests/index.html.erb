@@ -1,0 +1,6 @@
+<%#= @traces[0] %>
+<% @plots.each do |plot| %>
+  <%= link_to 'Show', request_path(plot) %>
+<% end %>
+<p><%= link_to 'Make Trace Request', new_request_path %></p>
+<p><%= link_to 'Back', predictions_path %></p>

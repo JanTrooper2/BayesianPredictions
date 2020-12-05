@@ -9,10 +9,11 @@ require 'open-uri'
 
 #Prediction.create(name: "US Presidency", description: "Donald Trump remains president at end of year", probability_in_percent: 95, outcome: true, user_id: 1, expiration_date: "2018-12-31")
 
+User.create(email: "developer@testing.com", password: 123456, username: "DeveloperAcc") if User.find_by(email: "developer@testing.com").nil?
+
 def create_prediction(title, description, probability, outcome)
   Prediction.create(name: title, description: description, probability_in_percent: probability, outcome: outcome, user_id: User.find_by(email: "developer@testing.com").id, expiration_date: "2018-12-31")
 end
-
 
 def open_and_read_file
   URI.open("https://pastebin.com/raw/en8UFUr2") do |f|

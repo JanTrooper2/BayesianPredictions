@@ -30,6 +30,7 @@
   <br>
   <p><%= link_to 'Expired Predictions', predictions_filtered_path %></p>
   <p><%= link_to 'New Prediction', new_prediction_path %></p>
+  <p><%= link_to 'Calibration', requests_path %></p>
 <% else %>
   <h1>Welcome to Bayesian Predictions!</h1>
   <p>Please Login here: <%= link_to "Login", new_user_session_path %> </p>

@@ -65,4 +65,10 @@ Rails.application.configure do
 
   #What service to use to store images
   config.active_storage.service = :amazon
+
+  #SVGs
+  config.assets.precompile += %w( '.svg' )  
+
+  # Must include to get inline SVGs to work in deploy
+  config.assets.css_compressor = :sass
 end

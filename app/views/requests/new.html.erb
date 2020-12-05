@@ -1,1 +1,5 @@
-<%= image_tag("plotGraph.svg") %>
+<h1>Successfull!</h1>
+<% current_user.plots.last.open do |file| %>
+  <%= show_svg(file.path) %>
+<% end %>
+<p><%= link_to 'Back', requests_path %></p>
