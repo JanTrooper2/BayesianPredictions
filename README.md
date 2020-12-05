@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+IMPORTANT LINKS
+
+https://guides.rubyonrails.org/active_storage_overview.html
+https://s3.console.aws.amazon.com/s3/buckets/bayesian-predictions?region=eu-central-1&tab=objects
+https://github.com/rest-client/rest-client
