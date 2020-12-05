@@ -4,17 +4,16 @@ require 'open-uri'
 
 class RequestsController < ApplicationController
   def index
-    #@user = current_user
     @plots = current_user.plots
   end
   
   def show
-
+    @plot = current_user.plots.find_by id: (params[:id].to_i)
   end
 
   def new
-    #execute_working()
     execute_experimental()
+    #execute_working()
     #experimental_get_trace()
   end
 
@@ -69,6 +68,12 @@ class RequestsController < ApplicationController
       }
     end
   end 
+
+  private 
+
+  # def params
+  #   params.permit(:id)
+  # end
 end
 
 
