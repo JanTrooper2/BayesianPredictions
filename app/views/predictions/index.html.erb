@@ -1,31 +1,7 @@
 <p id="notice"><%= notice %></p>
 <% if user_signed_in? %>
   <h1>Predictions</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th colspan="1">Name</th>
-        <th colspan="1">Probability</th>
-        <th colspan="1">Expiration Date</th>
-
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @predictions.each do |prediction| %>
-        <tr>
-          <td><%= prediction.name %></td>
-          <td><%= prediction.probability_in_percent %>%</td>
-          <td><%= prediction.expiration_date %></td>
-          <td class="btn btn-info"><%= link_to 'Show', prediction %></td>
-          <td class="btn btn-warning"><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
-          <td class="btn btn-danger"><%= link_to 'Destroy', prediction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+  <%= render "table"%>
   <br>
   <p><%= link_to 'Expired Predictions', predictions_filtered_path %></p>
   <p><%= link_to 'New Prediction', new_prediction_path %></p>
