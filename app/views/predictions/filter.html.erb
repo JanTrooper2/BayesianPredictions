@@ -1,15 +1,14 @@
 <p id="notice"><%= notice %></p>
 <% if user_signed_in? %>
-  <%= render 'navbar' %>
   <h1>Predictions</h1>
 
-  <table>
-    <thead>
+  <table class="table table-hover" >
+    <thead class="thead-dark">
       <tr>
-        <th colspan="1">Name</th>
-        <th colspan="1">Probability</th>
-        <th colspan="1">Expiration Date</th>
-        <th colspan="1">Outcome</th>
+        <th scope="col" colspan="1">Name</th>
+        <th scope="col" colspan="1">Probability</th>
+        <th scope="col" colspan="1">Expiration Date</th>
+        <th scope="col" colspan="1">Outcome</th>
       </tr>
     </thead>
 
@@ -20,9 +19,9 @@
           <td><%= prediction.probability_in_percent %>%</td>
           <td><%= prediction.expiration_date %></td>
           <td><%= prediction.outcome %></td>
-          <td><%= link_to 'Show', prediction %></td>
-          <td><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
-          <td><%= link_to 'Destroy', prediction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="btn btn-info"><%= link_to 'Show', prediction %></td>
+          <td class="btn btn-warning"><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
+          <td class="btn btn-danger"><%= link_to 'Destroy', prediction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

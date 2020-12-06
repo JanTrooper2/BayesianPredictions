@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 <% if user_signed_in? %>
-  <%= render 'navbar' %>
   <h1>Predictions</h1>
 
   <table>
@@ -19,9 +18,9 @@
           <td><%= prediction.name %></td>
           <td><%= prediction.probability_in_percent %>%</td>
           <td><%= prediction.expiration_date %></td>
-          <td><%= link_to 'Show', prediction %></td>
-          <td><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
-          <td><%= link_to 'Destroy', prediction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="btn btn-info"><%= link_to 'Show', prediction %></td>
+          <td class="btn btn-warning"><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
+          <td class="btn btn-danger"><%= link_to 'Destroy', prediction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -33,7 +32,7 @@
   <p><%= link_to 'Calibration', requests_path %></p>
 <% else %>
   <h1>Welcome to Bayesian Predictions!</h1>
-  <p>Please Login here: <%= link_to "Login", new_user_session_path %> </p>
-  <p>Or Sign Up here: <%= link_to "Sign Up", new_user_registration_path %> </p>
+  <p>Please Login here: <%= link_to "Login", new_user_session_path, class: "text-white btn btn-info" %> </p>
+  <p>Or Sign Up here: <%= link_to "Sign Up", new_user_registration_path, class: "text-white btn btn-success" %> </p>
 
 <% end %>

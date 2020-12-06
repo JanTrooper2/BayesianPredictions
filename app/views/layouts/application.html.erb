@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BayesianPredictions</title>
+    <title>Bayesian Predictions</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-light">
+    <div class="container">
+      <nav>
+        <ul class="nav bg-primary d-flex justify-content-between">
+          <li>
+            <a href="/" class="btn text-white bg-gradient-primary">Bayesian Predictions</a>
+          </li>
+          <li>            
+            <%= link_to "#{current_user.email}", "/profile/#{current_user.id}", class: "btn text-white bg-gradient-primary" %>
+          </li>
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "btn text-white bg-gradient-primary" %>
+          </li>
+        </ul>
+      </nav>
+      <%= yield %>
+    </div>
   </body>
 </html>
