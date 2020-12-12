@@ -1,30 +1,12 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Steps to Work on:
+- Resize profile pictures
+- Implement requests based on user predicionts
+- make it so that the user lands on a page rather than waiting for the trace request
+- User needs to be logged in to do anything
 
 
-IMPORTANT LINKS
+
+## Important Links
 
 https://guides.rubyonrails.org/active_storage_overview.html
 https://s3.console.aws.amazon.com/s3/buckets/bayesian-predictions?region=eu-central-1&tab=objects
