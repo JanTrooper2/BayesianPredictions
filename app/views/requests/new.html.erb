@@ -1,5 +1,7 @@
-<h1>Successfull!</h1>
-<% current_user.plots.last.open do |file| %>
-  <%= show_svg(file.path) %>
-<% end %>
+<h1><%= @message %></h1>
+<% if @message == "Successfull!"%>
+  <% current_user.plots.last.open do |file| %>
+    <%= show_svg(file.path) %>
+  <% end %>
+<% end%>
 <p><%= link_to 'Back', requests_path %></p>

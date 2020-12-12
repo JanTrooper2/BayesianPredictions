@@ -12,14 +12,26 @@ class RequestsController < ApplicationController
   end
 
   def new
-    get_trace()
-    get_svg()
+    percentage_arr = []
+    outcome_arr = []
+    current_user.predictions.each do |prediction| 
+      next if prediction.outcome.nil?
+      percentage_arr.append((prediction.probability_in_percent * 0.01).round(2))
+      prediction.outcome ? outcome_arr.append(1) : outcome_arr.append(0)
+    end
+    if percentage_arr.length > 9
+      get_trace(percentage_arr.join(","), outcome_arr.join(","))
+      get_svg()
+      @message = "Successfull!"
+    else
+      @message = "Error, you need at least 10 Expired Predictions."
+    end
   end
 
-  def get_trace()
+  def get_trace(percentage, outcome)
     raw = RestClient::Request.execute(
       method: :get,
-      url: 'http://badprior.com:5001/utils/get_trace?samples=2000&x=0.6,0.7,0.8&y=1,1,0',
+      url: "http://badprior.com:5001/utils/get_trace?samples=2000&x=#{percentage}&y=#{outcome}",
       raw_response: true
     )
     current_user.traces.attach(io: File.open(raw.file.path), filename: 'trace.bin', content_type: 'application/octet-stream')
