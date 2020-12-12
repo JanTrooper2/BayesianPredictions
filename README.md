@@ -1,8 +1,13 @@
 ## Steps to Work on:
-- Resize profile pictures
+### Priority High
 - Implement requests based on user predicionts
+
+### Priority Medium
+- Resize profile pictures
+
+### Priority Low
 - make it so that the user lands on a page rather than waiting for the trace request
-- User needs to be logged in to do anything
+- User needs to be logged in to do anything (maybe also check whether a user has access to a certain route)
 
 
 
