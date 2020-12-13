@@ -16,8 +16,13 @@ class RequestsController < ApplicationController
     outcome_arr = []
     current_user.predictions.each do |prediction| 
       next if prediction.outcome.nil?
-      percentage_arr.append((prediction.probability_in_percent * 0.01).round(2))
-      prediction.outcome ? outcome_arr.append(1) : outcome_arr.append(0)
+      if prediction.probability_in_percent < 50
+        percentage_arr.append(((1 - prediction.probability_in_percent) * 0.01).round(2))
+        prediction.outcome ?  outcome_arr.append(0) : outcome_arr.append(1)
+      else
+        percentage_arr.append((prediction.probability_in_percent * 0.01).round(2))
+        prediction.outcome ? outcome_arr.append(1) : outcome_arr.append(0)
+      end
     end
     if percentage_arr.length > 9
       get_trace(percentage_arr.join(","), outcome_arr.join(","))
@@ -41,7 +46,7 @@ class RequestsController < ApplicationController
     current_user.traces.last.open do |file| 
       FileUtils.mv(file.path, 'app/assets/traces/trace.bin')
       RestClient.post(
-        'http://badprior.com:5001/utils/posterior.svg', 
+        'http://badprior.com:5001/utils/posterior_predictive.svg', # need to figure out whether I should use only posterior predictive or both
         :file => File.new('app/assets/traces/trace.bin', "rb"),
         timeout: 15
       ) { |response, request, result, &block|
