@@ -1,7 +1,26 @@
 <h1><%= @message %></h1>
 <% if @message == "Successfull!"%>
+  <div>
+    <br>
+    <h5>Posterior predictive</h5>
+    <p>This is your calibration curve with uncertainties, also called the posterior predictive $p(y^{*}|y)$</p>
+    <p>It is created using this model:</p>
+    <p>
+      $$
+      \begin{aligned}
+          a &\sim N(1, 0.5) \newline
+          b &\sim N(0, 0.5) \newline
+          p &= expit(a \times logit(x) + b) \newline
+          \hat{y} &\sim bernoulli(p)
+      \end{aligned}
+      $$
+    </p>
+    <p>where x is a vector of predictions such as $[0.7, 0.9, 0.6]$ and y is a vector of outcomes such as $[1, 1, 0]$</p>
+    <h6>The posterior over the the two model parameters is:</h6>
+  </div>
   <% current_user.plots.last.open do |file| %>
     <%= show_svg(file.path) %>
   <% end %>
+  <p>To learn more about the model you can read these two blog posts about bayesian calibration and prediction: <%= link_to 'Bayesian Prediction and Calibration 1', "http://badprior.com:5001/blog/bayesian-prediction-and-calibration-1/" %> and <%= link_to 'Bayesian Prediction and Calibration 2', "http://badprior.com:5001/blog/bayesian-prediction-and-calibration-2/" %>.</p>
 <% end%>
 <p><%= link_to 'Back', requests_path %></p>
