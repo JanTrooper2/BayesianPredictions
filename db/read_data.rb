@@ -1,4 +1,4 @@
-File.open("/home/jantrooper2/Projects/BayesianPredictions/db/scotts_predictions.txt", "r") do |f|
+File.open("/home/jantrooper2/Projects/BayesianPredictions/db/scotts_predictions_2018.txt", "r") do |f|
   title = ["US", "ECONOMICS AND TECHNOLOGY", "CULTURE WARS", "COMMUNITIES", "PERSONAL", "SECRET"]
   descriptions = []
   @percentages = []
