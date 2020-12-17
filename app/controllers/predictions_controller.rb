@@ -3,14 +3,17 @@ class PredictionsController < ApplicationController
   # GET /predictions
   # GET /predictions.json
   def index
-    if user_signed_in?
-      @predictions = current_user.predictions.select { |prediction| prediction.outcome == nil }
+    @predictions = current_user.predictions.select { |prediction| prediction.outcome == nil }
+    respond_to do |format|
+      format.html { render :index }
+      format.json { serialize_predictions(@predictions, "app/assets/json_files/unexpired_predictions.json") }
     end
   end
 
   # GET /predictions/1
   # GET /predictions/1.json
   def show
+    #render :json => current_user.predictions.first
   end
 
   # GET /predictions/new
@@ -38,8 +41,10 @@ class PredictionsController < ApplicationController
     end
   end
   def filter
-    if user_signed_in?
-      @predictions = current_user.predictions.select { |prediction| prediction.outcome != nil }
+    @predictions = current_user.predictions.select { |prediction| prediction.outcome != nil }
+    respond_to do |format|
+      format.html { render :filter }
+      format.json { serialize_predictions(@predictions, "app/assets/json_files/expired_predictions.json") }
     end
   end
 
@@ -76,5 +81,14 @@ class PredictionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def prediction_params
       params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id, :expiration_date, :outcome)
+    end
+
+    def serialize_predictions(predictions, output)
+      formated_predictions = []
+      predictions.map{ |prediction|
+        formated_predictions.append(name: prediction.name, description: prediction.description, probability: prediction.probability_in_percent, expiry: prediction.expiration_date, outcome: prediction.outcome)
+      }
+      File.write(output, formated_predictions.to_json)
+      render json: formated_predictions
     end
 end
