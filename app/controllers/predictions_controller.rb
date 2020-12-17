@@ -1,6 +1,5 @@
 class PredictionsController < ApplicationController
   before_action :set_prediction, only: [:show, :edit, :update, :destroy]
-
   # GET /predictions
   # GET /predictions.json
   def index
