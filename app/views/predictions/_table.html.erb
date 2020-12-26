@@ -1,0 +1,27 @@
+<table class="table table-hover" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" colspan="1">Name</th>
+      <th scope="col" colspan="1">Probability</th>
+      <th scope="col" colspan="1">Expiration Date</th>
+      <th scope="col" colspan="1">Outcome</th>
+      <th scope="col" colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @predictions.each do |prediction| %>
+      <tr>
+        <td><%= prediction.name %></td>
+        <td><%= prediction.probability_in_percent %>%</td>
+        <td><%= prediction.expiration_date %></td>
+        <td><%= prediction.outcome.nil? ? "TBD" : prediction.outcome %></td>
+        <td class="d-flex justify-content-between">
+          <button class="btn btn-info"><%= link_to 'Show', prediction %></button>
+          <button class="btn btn-warning"><%= link_to 'Edit', edit_prediction_path(prediction) %></button>
+          <button class="btn btn-danger"><%= link_to 'Destroy', prediction, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,105 @@
+<p>US:<br />
+1. Donald Trump remains president at end of year: 95%<br />
+2. Democrats take control of the House in midterms: 80%<br />
+<s>3. Democrats take control of the Senate in midterms: 50%</s><br />
+<s>4. Mueller’s investigation gets cancelled (eg Trump fires him): 50%</s><br />
+5. Mueller does not indict Trump: 70%<br />
+<s>6. PredictIt shows Bernie Sanders having highest chance to be Dem nominee at end of year: 60%</s><br />
+7. PredictIt shows Donald Trump having highest chance to be GOP nominee at end of year: 95%<br />
+<s>9. Some sort of major immigration reform legislation gets passed: 70%</s><br />
+10. No major health-care reform legislation gets passed: 95%<br />
+11. No large-scale deportation of Dreamers: 90%<br />
+12. US government shuts down again sometime in 2018: 50%<br />
+13. Trump’s approval rating lower than 50% at end of year: 90%<br />
+<s>14. …lower than 40%: 50%</s><br />
+<i>15. GLAAD poll suggesting that LGBQ acceptance is down will mostly not be borne out by further research: 80%</i></p>
+<p>ECONOMICS AND TECHNOLOGY:<br />
+<s>16. Dow does not fall more than 10% from max at any point in 2018: 50%</s><br />
+<s>17. Bitcoin is higher than $5,000 at end of year: 95%</s><br />
+<s>18. Bitcoin is higher than $10,000 at end of year: 80%</s><br />
+19. Bitcoin is lower than $20,000 at end of year: 70%<br />
+20. Ethereum is lower than Bitcoin at end of year: 95%<br />
+21. Luna has a functioning product by end of year: 90%<br />
+<s>22. Falcon Heavy first launch not successful: 70%</s><br />
+23. Falcon Heavy eventually launched successfully in 2018: 80%<br />
+24. SpaceX does not attempt its lunar tourism mission by end of year: 95%<br />
+25. Sci-Hub is still relatively easily accessible from within US at end of year (even typing in IP directly is relatively easy): 95%<br />
+26. Nothing particularly bad (beyond the level of an funny/weird news story) happens because of ability to edit videos this year: 90%<br />
+<s>27. A member of the general public can ride-share a self-driving car without a human backup driver in at least one US city by the end of the year: 80%</s></p>
+<p>CULTURE WARS:<br />
+28. Reddit does not ban r/the_donald by the end of the year: 90%<br />
+29. None of his enemies manage to find a good way to shut up/discredit Jordan Peterson: 70%</p>
+<p>COMMUNITIES:<br />
+30. SSC gets more hits in 2018 than in 2017: 80%<br />
+31. SSC gets mentioned in the New York Times (by someone other than Ross Douthat): 60%<br />
+<s>32. At least one post this year gets at least 100,000 hits: 70%</s><br />
+33. A 2019 SSC Survey gets posted by the end of the year: 90%<br />
+34. No co-bloggers make 3 or more SSC posts this year: 80%<br />
+35. Patreon income less than double current amount at end of year: 90%<br />
+<s>36. A scientific paper based on an SSC post is accepted for publication in real journal by end of year: 60%</s><br />
+<s>37. I do an adversarial collaboration with somebody interesting by the end of the year: 50%</s><br />
+38. I successfully do some general project to encourage and post more adversarial collaborations by other people: 70%<br />
+39. New SSC meetups system/database thing gets launched successfully: 60%<br />
+40. LesserWrong remains active and successful (average at least one halfway-decent post per day) at the end of the year: 50%<br />
+41. LesserWrong is declared official and merged with LessWrong.com: 80%<br />
+42. I make fewer than five posts on LessWrong (posts copied over from SSC don’t count): 70%<br />
+43. CFAR buys a venue this year: 50%<br />
+44. AI Impacts has at least three employees working half-time or more sometime this year: 50%<br />
+<s>45. Rationalists get at least one more group house on Ward Street: 50%</s><br />
+46. No improvement in the status of reciprocity.io (either transfer to a new team or at least one new feature added): 70%</p>
+<p>PERSONAL:<br />
+47. I fail at my New Years’ resolution to waste less time on the Internet throughout most of 2018: 80%<br />
+<s>48. I fail at my other New Years’ resolution to try one biohacking project per month throughout 2018: 80%</s><br />
+49. I don’t attend the APA National Meeting: 80%<br />
+50. I don’t attend the New York Solstice: 80%<br />
+51. I travel outside the US in 2018: 90%<br />
+<s>52. I get some sort of financial planning sorted out by end of year: 95%</s><br />
+<s>53. I get at least one article published on a major site like Vox or New Statesman or something: 50%</s><br />
+<s>54. I get a tax refund: 50%</s><br />
+55. I weigh more than 195 lb at year end: 60%<br />
+56. I complete the currently visible Duolingo course in Spanish: 90%<br />
+57. I don’t get around to editing Unsong (complete at least half the editing by my own estimate) this year: 95%<br />
+58. No new housemate for at least one month this year: 90%<br />
+59. I won’t [meditate at least one-third of days this year]: 90%<br />
+60. I won’t [do my exercise routine at least one third of days this year]: 80%<br />
+<s>61. I still live in the same house at the end of 2018: 60%</s><br />
+<s>62. I will not have bought a house by the end of 2018: 90%</s><br />
+63. Katja’s paper gets published: 90%<br />
+<s>64. Some other paper of Katja’s gets published: 50%</s></p>
+<p>SECRET: (mostly speculating on the personal lives of friends who read this blog; I don’t necessarily want them to know how successful I expect their financial and romantic endeavors to be. I&#8217;ve declassified the ones that now seem harmless to admit.)</p>
+65. My partner and I come to a decision about whether to have children: 80%<br />
+<s>66. My partner and I are engaged by the end of the year: 70%</s><br />
+<s>67. My partner and I do not break up by the end of the year: 70%</s><br />
+<s>68. [Secret prediction]: 60%</s><br />
+69. [Secret prediction]: 70%<br />
+<s>70. [Secret prediction]: 60%</s><br />
+<s>71. [Secret prediction]: 50%</s><br />
+<s>72. [Secret prediction]: 50%</s><br />
+<s>73. [Secret prediction]: 50%</s><br />
+74. [Secret prediction]: 90%<br />
+75. [Secret prediction]: 90%<br />
+76. [Secret prediction]: 60%<br />
+77. [Secret prediction]: 70%<br />
+78. [Secret prediction]: 60%<br />
+<s>79. [Secret prediction]: 50%</s><br />
+80. [Secret prediction]: 60%<br />
+81. I lose my bet against Duncan about Dragon Army Barracks: 80%<br />
+82. Dragon Army Barracks is still together at the end of the year: 70%<br />
+<s>83. I will visit Greece: 50%</s><br />
+<s>84. I will visit Germany: 70%</s><br />
+85. [Secret prediction]: 70%<br />
+<s>86. [Secret prediction]: 70%</s><br />
+87. [Secret prediction]: 60%<br />
+88. [Secret prediction]: 50%<br />
+<s>89. [Secret prediction]: 50%</s><br />
+90. [Secret prediction]: 70%<br />
+91. [Secret prediction]: 90%<br />
+92. [Secret prediction]: 50%<br />
+93. Still working at my current job at the end of 2018: 90%<br />
+<s>94. Working 30 hours/week or less at the end of 2018: 50%</s><br />
+<s>95. Have switched to practicing entirely in the East Bay: 60%</s><br />
+96. [Secret prediction]: 60%<br />
+97. Will not finish first section of a difficult calligraphy project: 60%<br />
+98. Will not finish all sections of difficult calligraphy project: 95%<br />
+99. I will not do work for AI Impacts by the end of the year: 70%<br />
+100. I will not finish more than 25% of a new novel: 70%</p>

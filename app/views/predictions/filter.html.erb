@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+  <h1>Expired Predictions</h1>
+  <%= render "table"%>
+  <br>
+  <p><%= link_to 'Back', predictions_path %></p>
+  <p><%= link_to 'Evaluate Performance', requests_path %></p>
+  <p><%= link_to 'New Prediction', new_prediction_path %></p>
+<% else %>
+  <h1>Welcome to Bayesian Predictions!</h1>
+  <p>Please Login here: <%= link_to "Login", new_user_session_path %> </p>
+  <p>Or Sign Up here: <%= link_to "Sign Up", new_user_registration_path %> </p>
+
+<% end %>

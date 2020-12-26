@@ -1,0 +1,59 @@
+<p>1. Obamacare will survive the year mostly intact: 80%<br />
+2. US does not get involved in any new major war with death toll of > 100 US soldiers: 90%<br />
+3. Syria’s civil war will not end this year (unstable cease-fire doesn’t count as “end”): 60%<br />
+<font color="red">4. Bitcoin will end the year higher than $1000: 70%</font><br />
+5. US official unemployment rate will be < 7% in Dec 2014: 80%
+6. Republicans will keep the House in US midterm elections: 80%
+<font color="red">7. Democrats will keep the Senate in US midterm elections: 60%</font><br />
+8. North Korea&#8217;s government will survive the year without large civil war/revolt: 80%<br />
+9. Iraq&#8217;s government will survive the year without large civil war/revolt: 60%<br />
+10. China&#8217;s government will survive the year without large civil war/revolt: 99%<br />
+11. US government will survive the year without large civil war/revolt: 99%<br />
+12. Egypt&#8217;s government will survive the year without large civil war/revolt: 60%<br />
+13. Israel-Palestine negotiations remain blocked, no obvious plan for Palestinian independence: 99%<br />
+14. Israel does not get in a large-scale war (ie >100 Israeli deaths) with any Arab state: 95%<br />
+15. Sochi Olympics will not be obvious disaster (ie spectacular violence, protests that utterly overshadow events, or have to be stopped early): 90%<br />
+16. Putin will remain President of Russia at end of 2014: 95%<br />
+17. Obama will remain President of USA at end of 2014: 95%<br />
+18. No nuclear weapon used in anger in 2014: 99%<br />
+19. No terrorist attack in USA killing > 100 people: 90%<br />
+20. No mass shooting in USA killing > 10 people: 50%<br />
+21. Republic of Shireroth will not officially disband or obviously die before end of 2014: 90%<br />
+22. Republic of Shireroth will remain in Bastion Union: 80%<br />
+23. Active population of Shireroth on last 2014 census will be between 10 and 20: 70%<br />
+24. Slate Star Codex will remain active until end of 2014: 70%<br />
+25. Slate Star Codex will get more hits in 2014 than in 2013: 60%<br />
+26. At least one 2014 Slate Star Codex post will get > 10,000 hits total: 80%<br />
+27. No 2014 Slate Star Codex post will get > 100,000 hits total: 90%<br />
+<font color="red">28. 2014 Less Wrong Survey will show higher population than 2013 Survey conditional on similar methodology: 80%</font><br />
+29. 2014 Less Wrong Survey will show population < 2000 C.O.S.M.: 70%
+30. 2014 Less Wrong Survey will have > % female than 2013 Less Wrong Survey: 70%<br />
+31. 2014 Less Wrong Survey will have < 20% female: 90%
+<font color="red">32. HPMoR will conclude in 2014: 80%</font><br />
+33. At least 1 LW post > 100 karma in 2014: 50%<br />
+34. No LW post > 100 karma by me: 80%<br />
+35. CFAR will continue operating in end of 2014: 90%<br />
+36. MIRI will continue operating in end of 2014: 99%<br />
+37. MetaMed will continue operating in end of 2014: 80%<br />
+38. None of Eliezer, Luke, Anna, or Julia will quit their respective organizations: 60%<br />
+39. No one in LW community will become world-famous (let’s say >= Peter Thiel) for anything they accomplish this year: 80%<br />
+40. MIRI will not announce it is actively working on coding a Friendly AI (not just a few bits and pieces thereof) before the end of 2014: 99%<br />
+41. I will remain at my same job through the end of 2014: 95%<br />
+<font color="red">42. I will get a score at >95th percentile for my year on PRITE: 70%</font><br />
+43. I will be involved in at least one published/accepted-to-publish research paper by the end of 2014: 20%<br />
+<font color="red">44. I will not break up with any of my current girlfriends through the end of 2014: 50%</font><br />
+<font color="red">45. I will not get any new girlfriends in 2014: 50%</font><br />
+46. I will not be engaged by the end of 2014: 80%<br />
+<font color="red">47. I will be living with Ozy by the end of 2014: 80%</font><br />
+<font color="red">48. I will take nootropics on average at least once/week through the second half of 2014: 50%</font><br />
+49. I will not manage to meditate at least 100 days in 2014: 80%<br />
+50. I will attend NYC Solstice ritual: 60%<br />
+<font color="red">51. I will arrange some kind of Michigan Solstice Ritual: 50%</font><br />
+52. I will not publicly identify as religious (> atheist) by the end of 2014: 95%<br />
+53. I will not publicly identify as neoreactionary or conservative (> liberal or libertarian) by the end of 2014: 70%<br />
+54. I will not publicly identify as leftist or communist (> liberal or libertarian) by the end of 2014: 80%<br />
+55. I will get a Tumblr in 2014: 50%<br />
+56. I will not delete/abandon either my Facebook or Twitter accounts: 60%<br />
+<font color="red">57. I will have less than 1000 Twitter followers by the end of 2014: 60%</font><br />
+58. When Eliezer sends me a copy of “Perfect Health Diet”, I will not be convinced that it is more correct or useful than the best mainstream nutrition advice (eg Stephen Guyenet’s blog): 70%<br />
+59. I will end up being underconfident on these predictions: 50%</p>
