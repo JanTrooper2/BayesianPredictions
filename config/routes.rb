@@ -9,9 +9,10 @@ Rails.application.routes.draw do
     confirmations: 'devise/confirmations', 
     unlocks: 'devise/unlocks' 
   }
+  resources :api
   resources :requests
   resources :predictions 
   get 'predictions_filtered', to: 'predictions#filter'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root "predictions#index"
+  root "users#index"
 end
