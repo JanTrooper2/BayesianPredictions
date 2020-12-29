@@ -1,7 +1,7 @@
-<p id="notice"><%= notice %></p>
-<%#= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
+<%# <p id="notice"> notice %>
 <h1>Predictions</h1>
-<%= render "table"%>
+<%= react_component("PredictionsTable", { override: params[:override], outcome: params[:outcome], amount: params[:amount] }) %>
+<%#= render "table"%>
 <br>
 <p><%= link_to 'Expired Predictions', predictions_filtered_path %></p>
 <p><%= link_to 'New Prediction', new_prediction_path %></p>

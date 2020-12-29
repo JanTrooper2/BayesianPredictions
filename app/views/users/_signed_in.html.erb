@@ -1,1 +1,6 @@
 <h1><u>Welcome to Bayesian Predicitons!</u></h1>
+<h2>Dashboard</h2>
+<p>You have <%= @predictions.length %> predictions.<%= link_to "View here", predictions_path(override: "all") %></p>
+<p><%= @fullfilled.length %> out of those are fullfilled. <%= link_to "View here", predictions_path(filter: "fullfilled") %></p></p>
+<p><%= @uncertain.length %> out of those are still pending. <%= link_to "View here", predictions_path(filter: "uncertain") %></p></p>
+<%= %>

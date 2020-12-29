@@ -1,6 +1,19 @@
 class ApiController < ApplicationController
   def index
-    @predictions = Prediction.select { |prediction| prediction.outcome == ActiveModel::Type::Boolean.new.cast(params[:outcome]) }.first(params[:amount].to_i)
+    if params[:override] == "all"
+      @predictions = current_user.predictions
+    else
+      @predictions = current_user.predictions.select { |prediction| 
+        if params[:outcome] != nil
+          prediction.outcome == ActiveModel::Type::Boolean.new.cast(params[:outcome])
+        else 
+          prediction.outcome == nil
+        end 
+      }
+      unless params[:amount].nil?
+        @predictions = @predictions.first(params[:amount].to_i)
+      end
+    end
     render json: @predictions
   end
 

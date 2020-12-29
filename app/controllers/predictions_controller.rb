@@ -3,7 +3,6 @@ class PredictionsController < ApplicationController
   # GET /predictions
   # GET /predictions.json
   def index
-    @predictions = current_user.predictions.select { |prediction| prediction.outcome == nil }
     respond_to do |format|
       format.html { render :index }
       format.json { serialize_predictions(@predictions, "app/assets/json_files/unexpired_predictions.json") }
@@ -38,13 +37,6 @@ class PredictionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @prediction.errors, status: :unprocessable_entity }
       end
-    end
-  end
-  def filter
-    @predictions = current_user.predictions.select { |prediction| prediction.outcome != nil }
-    respond_to do |format|
-      format.html { render :filter }
-      format.json { serialize_predictions(@predictions, "app/assets/json_files/expired_predictions.json") }
     end
   end
 
