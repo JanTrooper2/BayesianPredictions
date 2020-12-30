@@ -5,7 +5,7 @@ const PredictionsTable = (props) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  const [outcome, setOutcome] = useState()
+  const [outcome, setOutcome] = useState("null")
   const [amount, setAmount] = useState(20)
 
 
@@ -49,10 +49,10 @@ const PredictionsTable = (props) => {
 
   ]
   const outcomeOptions = [
+    {value: "null", label: 'only unresolved'},
+    {value: "both", label: 'only resolved'},
     {value: "true", label: 'only true'},
     {value: "false", label: 'only false'},
-    {value: "both", label: 'only resolved'},
-    {value: "null", label: 'only unresolved'},
   ]
 
   if (error) {
@@ -62,9 +62,12 @@ const PredictionsTable = (props) => {
   } else {
     return (
       <React.Fragment>
-        <Select name="amountSelector" onChange={(e) => setAmount(e.value)} options={amountOptions} />
-        <Select name="outcomeSelector" onChange={(e) => setOutcome(e.value)} options={outcomeOptions} />
-
+        <div className="filter-selectors">
+          Amount: <Select defaultValue={amountOptions[0]} name="amountSelector" onChange={(e) => setAmount(e.value)} options={amountOptions} />
+          Outcome: <Select defaultValue={outcomeOptions[0]} name="outcomeSelector" onChange={(e) => setOutcome(e.value)} options={outcomeOptions} />
+          <br></br>
+          <br></br>
+        </div>
         <table className="table table-hover" >
           <thead className="thead-dark">
             <tr key="headRow">
@@ -85,8 +88,8 @@ const PredictionsTable = (props) => {
                 <td>{item.outcome == null ? "TBD" : String(item.outcome)}</td>
                 <td className="d-flex justify-content-between">
                   <a href={`/predictions/${item.id}`} className="btn btn-info">Show</a>
-                  <button className="btn btn-warning">Edit</button>
-                  <button className="btn btn-danger">Destroy</button>
+                  <a href={`/predictions/${item.id}/edit`} className="btn btn-warning">Edit</a>
+                  <a data-confirm="Are you sure?" data-method="delete" href={`/predictions/${item.id}`} className="btn btn-danger">Destroy</a>
                 </td>
               </tr>
               ))}

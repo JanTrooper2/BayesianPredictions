@@ -4,9 +4,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def index
-    #@users = User.all
-    @predictions = current_user.predictions.all
-    @fullfilled = @predictions.select { |prediction| prediction.outcome != nil }
-    @uncertain = @predictions.select { |prediction| prediction.outcome == nil }
+    if current_user
+      @predictions = current_user.predictions.all
+      @fullfilled = @predictions.select { |prediction| prediction.outcome != nil }
+      @uncertain = @predictions.select { |prediction| prediction.outcome == nil }
+    end
   end
 end
