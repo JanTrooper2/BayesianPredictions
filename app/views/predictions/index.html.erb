@@ -1,6 +1,6 @@
 <%# <p id="notice"> notice %>
 <h1>Predictions</h1>
-<%= react_component("PredictionsTable", { override: params[:override], outcome: params[:outcome], amount: params[:amount] }) %>
+<%= react_component("PredictionsTable", {}) %>
 <%#= render "table"%>
 <br>
 <p><%= link_to 'New Prediction', new_prediction_path %></p>

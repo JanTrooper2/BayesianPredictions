@@ -5,19 +5,17 @@ const PredictionsTable = (props) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
+  const [outcome, setOutcome] = useState()
+  const [amount, setAmount] = useState(20)
 
 
   useEffect(() => {
     let paramString = "";
-    if (props.override !== null){
-      paramString += "override=" + props.override;
-    } else {
-      if (props.outcome !== null) {
-        paramString += "outcome=" + props.outcome + "&";
-      }
-      if (props.amount !== null) {
-        paramString += "amount=" + props.amount;
-      }
+    if (outcome !== "null") {
+      paramString += "outcome=" + outcome + "&";
+    }
+    if (amount !== "null") {
+      paramString += "amount=" + amount;
     }
     fetch(`/api?${paramString}`)
       .then(res => res.json())
@@ -34,12 +32,27 @@ const PredictionsTable = (props) => {
           setError(error);
         }
       )
-  }, [])
+  }, [amount, outcome])
 
-  const options = [
+  const amountOptions = [
     { value: 20, label: '20' },
     { value: 40, label: '40' },
-    { value: 60, label: '60' }
+    { value: 60, label: '60' },
+    { value: 80, label: '80' },
+    { value: 100, label: '100' },
+    { value: 120, label: '120' },
+    { value: 140, label: '140' },
+    { value: 160, label: '160' },
+    { value: 180, label: '180' },
+    { value: 200, label: '200' },
+    { value: "null", label: 'all' },
+
+  ]
+  const outcomeOptions = [
+    {value: "true", label: 'only true'},
+    {value: "false", label: 'only false'},
+    {value: "both", label: 'only resolved'},
+    {value: "null", label: 'only unresolved'},
   ]
 
   if (error) {
@@ -49,7 +62,9 @@ const PredictionsTable = (props) => {
   } else {
     return (
       <React.Fragment>
-        <Select options={options} />
+        <Select name="amountSelector" onChange={(e) => setAmount(e.value)} options={amountOptions} />
+        <Select name="outcomeSelector" onChange={(e) => setOutcome(e.value)} options={outcomeOptions} />
+
         <table className="table table-hover" >
           <thead className="thead-dark">
             <tr key="headRow">
@@ -69,7 +84,7 @@ const PredictionsTable = (props) => {
                 <td>{item.expiration_date}</td>
                 <td>{item.outcome == null ? "TBD" : String(item.outcome)}</td>
                 <td className="d-flex justify-content-between">
-                  <button className="btn btn-info">Show</button>
+                  <a href={`/predictions/${item.id}`} className="btn btn-info">Show</a>
                   <button className="btn btn-warning">Edit</button>
                   <button className="btn btn-danger">Destroy</button>
                 </td>
