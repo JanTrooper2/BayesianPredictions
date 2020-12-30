@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import Select from 'react-select'
 
 const PredictionsTable = (props) => {
   const [error, setError] = useState(null);
@@ -12,7 +13,7 @@ const PredictionsTable = (props) => {
       paramString += "override=" + props.override;
     } else {
       if (props.outcome !== null) {
-        paramString += "outcome=" + props.outcome;
+        paramString += "outcome=" + props.outcome + "&";
       }
       if (props.amount !== null) {
         paramString += "amount=" + props.amount;
@@ -34,6 +35,13 @@ const PredictionsTable = (props) => {
         }
       )
   }, [])
+
+  const options = [
+    { value: 20, label: '20' },
+    { value: 40, label: '40' },
+    { value: 60, label: '60' }
+  ]
+
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -41,6 +49,7 @@ const PredictionsTable = (props) => {
   } else {
     return (
       <React.Fragment>
+        <Select options={options} />
         <table className="table table-hover" >
           <thead className="thead-dark">
             <tr key="headRow">
@@ -58,7 +67,7 @@ const PredictionsTable = (props) => {
                 <td>{item.name}</td>
                 <td>{item.probability_in_percent}</td>
                 <td>{item.expiration_date}</td>
-                <td>{item.outcome == null ? "TBD" : item.outcome}</td>
+                <td>{item.outcome == null ? "TBD" : String(item.outcome)}</td>
                 <td className="d-flex justify-content-between">
                   <button className="btn btn-info">Show</button>
                   <button className="btn btn-warning">Edit</button>
