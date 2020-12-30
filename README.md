@@ -19,14 +19,18 @@ The black line is the perfect predictor, the blue line shows your position.
 
 
 
-
+## Latest Major Updates
++ Inclusion of React.
++ Prediction Table now filterable!
++ New User experience improved.
++ Mathjax updated to new Version.
 
 ## Steps to Work on:
 ### Priority High
 - allow a button for callibration 2018, 2019, 2020, all, so create buttoms based on each year where predictions exists => change year by year
-- create bulk up and download, so download all predictions as a csv/tsv and potentially upload them... I personally would prefere to write my predictions in vim and then upload a file :D... but I may be the odd exception
 
 ### Priority Medium
+- create bulk up and download
 
 ### Priority Low
 - make it so that the user lands on a page rather than waiting for the trace request
