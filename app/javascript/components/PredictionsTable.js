@@ -7,11 +7,13 @@ const PredictionsTable = (props) => {
   const [items, setItems] = useState([]);
   const [outcome, setOutcome] = useState("null")
   const [amount, setAmount] = useState(20)
-
+  const [jsonPredictions, setJsonPredictions] = useState();
+  const [formDisplayToggle, setFormDisplayToggle] = useState("d-none");
+  const [jsonUploadData, setJsonUploadData] = useState();
 
   useEffect(() => {
     let paramString = "";
-    if (outcome !== "null") {
+    if (outcome !== "all") {
       paramString += "outcome=" + outcome + "&";
     }
     if (amount !== "null") {
@@ -48,12 +50,45 @@ const PredictionsTable = (props) => {
     { value: "null", label: 'all' },
 
   ]
+
   const outcomeOptions = [
     {value: "null", label: 'only unresolved'},
     {value: "both", label: 'only resolved'},
     {value: "true", label: 'only true'},
     {value: "false", label: 'only false'},
+    {value: "all", label: 'all'},
   ]
+
+  const serializeData = (objects) => {
+    let formattedArray = objects.map(x => {
+      return ({name: x.name, description: x.description, probability_in_percent: x.probability_in_percent, outcome: x.outcome, expiration_date: x.expiration_date});
+    })
+    setJsonPredictions(JSON.stringify(formattedArray));
+  }
+  const toggleForm = () => {
+    if (formDisplayToggle == "d-none"){
+      setFormDisplayToggle("d-block")
+    } else {
+      setFormDisplayToggle("d-none")
+    }
+  }
+
+  const uploadData = (e, data) => {
+    e.preventDefault();
+    toggleForm();
+    //e.textarea.target.value = "";
+    //console.log(e.target.children[1].value);
+    //console.log(data.trim());
+    fetch('/api', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: data,
+    })
+  }
+
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -95,9 +130,22 @@ const PredictionsTable = (props) => {
               ))}
           </tbody>
         </table>
+        <div className="d-flex justify-content-around">
+          <div className="w-25">
+            <button onClick={() => serializeData(items)} className="btn btn-success">Download Predictions in JSON Format</button>
+            <p style={{maxHeight: "200px"}} className="overflow-auto"> {jsonPredictions}</p>
+          </div>
+          <div className="w-25">
+            <button onClick={() => toggleForm()} className="btn btn-primary">Upload Predictions in JSON Format</button>
+            <form className={formDisplayToggle} onSubmit={(e) => uploadData(e, jsonUploadData)}>
+              <textarea style={{height: "200px"}} onChange={(e) => setJsonUploadData(e.target.value)}/> 
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
       </React.Fragment>
     );
   }
 }
-
+// setJsonUploadData(e.value)
 export default PredictionsTable

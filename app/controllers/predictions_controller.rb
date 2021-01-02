@@ -5,7 +5,9 @@ class PredictionsController < ApplicationController
   def index
     respond_to do |format|
       format.html { render :index }
-      format.json { serialize_predictions(@predictions, "app/assets/json_files/unexpired_predictions.json") }
+      format.json { 
+        serialize_predictions(current_user.predictions, "app/assets/json_files/unexpired_predictions.json") 
+      }
     end
   end
 
@@ -76,11 +78,13 @@ class PredictionsController < ApplicationController
     end
 
     def serialize_predictions(predictions, output)
+      puts params[:outcome]
       formated_predictions = []
       predictions.map{ |prediction|
         formated_predictions.append(name: prediction.name, description: prediction.description, probability: prediction.probability_in_percent, expiry: prediction.expiration_date, outcome: prediction.outcome)
       }
       File.write(output, formated_predictions.to_json)
       render json: formated_predictions
+      
     end
 end
