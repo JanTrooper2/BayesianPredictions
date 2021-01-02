@@ -3,5 +3,5 @@
 <p>You have <%= @predictions.length %> predictions.</p>
 <p><%= @fullfilled.length %> out of those are fullfilled.</p>
 <p><%= @uncertain.length %> out of those are still pending.</p>
-<p>View your predictions <%= link_to "here", predictions_path %>.</p>
+<%= button_to "Your Predictions", predictions_path, method: "get", class:"btn-primary" %>
 <%= %>

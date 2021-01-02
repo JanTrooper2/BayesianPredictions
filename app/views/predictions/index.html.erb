@@ -1,7 +1,7 @@
-<%# <p id="notice"> notice %>
 <h1>Predictions</h1>
 <%= react_component("PredictionsTable", {}) %>
-<%#= render "table"%>
 <br>
-<p><%= link_to 'New Prediction', new_prediction_path %></p>
-<p><%= link_to 'Calibration', requests_path %></p>
+<p><%= button_to 'New Prediction', new_prediction_path, method: "get", class: "btn-primary" %></p>
+<p><%= button_to 'Calibration', requests_path, method: "get", class: "btn-primary" %></p>
+<p><%= button_to 'Back', root_path, method: "get", class: "btn-secondary" %></p>
+

@@ -24,8 +24,8 @@
 
   </head>
 
-  <body style="background:thistle;">
-    <div style="background:lavender;" class="container">
+  <body style="background: thistle;">
+    <div style="background: lavender" class="container">
       <nav>
         <ul class="nav bg-primary d-flex justify-content-between">
           <li>
@@ -42,7 +42,9 @@
           </li>
         </ul>
       </nav>
-      <%= yield %>
+      <main style="min-height: 96vh">
+        <%= yield %>
+      </main>
     </div>
   </body>
 </html>

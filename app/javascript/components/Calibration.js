@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
 import Select from 'react-select'
 
 const Calibration = () => {
@@ -8,17 +8,6 @@ const Calibration = () => {
   const request_picture = (e) => {
     e.preventDefault();
     window.location.replace(`/requests/new?year=${year}`);
-    // fetch(`/requests/new?year=${year}`)
-    //   .then(
-    //     (result) => {
-    //       setIsLoaded(true);
-    //       setFormDisplayToggle("d-none");
-    //     }, 
-    //     (error) => {
-    //       setIsLoaded(true);
-    //       setError(error);
-    //     }
-    //   )
   }
 
   const yearOptions = [
@@ -38,7 +27,7 @@ const Calibration = () => {
       <div className="Request-Form">
         <form className={formDisplayToggle} onSubmit={(e) => request_picture(e)}>
           Year:<Select defaultValue={yearOptions[0]} name="yearSelector" onChange={(e) => setYear(e.value)} options={yearOptions} />
-          <input type="submit" value="Submit" />
+          <input className="btn-success" type="submit" value="Submit" />
         </form>
       </div>
     </React.Fragment>
