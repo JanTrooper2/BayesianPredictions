@@ -20,9 +20,9 @@ The black line is the perfect predictor, the blue line shows your position.
 ## JSON Upload format
 The entire Upload has to be encased with square brackets.
 Each prediction has to be seperated by a comma.
-Inside of each prediction you need to add the following value pairs: name, outcome, description, probability_in_percent, expiration_date(YYYY-MM-DD)
+Inside of each prediction you need to add the following value pairs: name(with quotation marks), outcome(without quotation marks), description(with quotation marks), probability_in_percent(without quotation marks), expiration_date(YYYY-MM-DD (without quotation marks))
 
-Example: [{"name": "Prediction1", ...}, {"name": "Prediction2", ...}]
+Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name": "Prediction2","expiration_date": 2020-05-05, ...}'}]
 
 ## Latest Major Updates
 + Inclusion of React.

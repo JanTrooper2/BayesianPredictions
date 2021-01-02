@@ -2,5 +2,5 @@
 <% @plots.each_with_index do |plot, index| %>
   <%= link_to "Show #{index + 1}, Date: #{plot.created_at}", request_path(plot) %><br>
 <% end %><br>
-<p><%= link_to 'Make Trace Request', new_request_path %></p>
+<%= react_component("Calibration", {}) %>
 <p><%= link_to 'Back', predictions_path %></p>

@@ -141,8 +141,8 @@ const PredictionsTable = (props) => {
               <h5>JSON Upload format</h5>
               <p>The entire Upload has to be encased with square brackets.</p>
               <p>Each prediction has to be seperated by a comma.</p>
-              <p>Inside of each prediction you need to add the following value pairs: name, outcome, description, probability_in_percent, expiration_date(YYYY-MM-DD)</p>
-              <p>Example:  [{'{"name": "Prediction1", ...}, {"name": "Prediction2", ...}'}]</p>
+              <p>Inside of each prediction you need to add the following value pairs: name(with quotation marks), outcome(without quotation marks), description(with quotation marks), probability_in_percent(without quotation marks), expiration_date(YYYY-MM-DD (without quotation marks))</p>
+              <p>Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name": "Prediction2","expiration_date": 2020-05-05, ...}'}]</p>
               <textarea className="w-100" style={{height: "200px"}} onChange={(e) => setJsonUploadData(e.target.value)}/> 
               <input type="submit" value="Submit" />
             </form>
@@ -152,5 +152,4 @@ const PredictionsTable = (props) => {
     );
   }
 }
-// setJsonUploadData(e.value)
 export default PredictionsTable

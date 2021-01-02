@@ -14,7 +14,13 @@ class RequestsController < ApplicationController
   def new
     percentage_arr = []
     outcome_arr = []
-    current_user.predictions.each do |prediction| 
+    possible_predictions = current_user.predictions.select{|prediction|
+      prediction.outcome != nil
+    }
+    selected_predictions = (params[:year].to_i == 0 || params[:year].nil?) ? current_user.predictions : current_user.predictions.select{|prediction|
+      prediction.expiration_date.year == params[:year].to_i
+    }
+    selected_predictions.each do |prediction| 
       next if prediction.outcome.nil?
       if prediction.probability_in_percent < 50
         percentage_arr.append(((1 - prediction.probability_in_percent) * 0.01).round(2))
@@ -33,10 +39,10 @@ class RequestsController < ApplicationController
     end
   end
 
-  def get_trace(percentage, outcome)
+  def get_trace(percentages, outcomes)
     raw = RestClient::Request.execute(
       method: :get,
-      url: "http://badprior.com:5001/utils/get_trace?samples=2000&x=#{percentage}&y=#{outcome}",
+      url: "http://badprior.com:5001/utils/get_trace?samples=2000&x=#{percentages}&y=#{outcomes}",
       raw_response: true
     )
     current_user.traces.attach(io: File.open(raw.file.path), filename: 'trace.bin', content_type: 'application/octet-stream')
