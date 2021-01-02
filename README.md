@@ -17,20 +17,25 @@ The black line is the perfect predictor, the blue line shows your position.
 
 
 
+## JSON Upload format
+The entire Upload has to be encased with square brackets.
+Each prediction has to be seperated by a comma.
+Inside of each prediction you need to add the following value pairs: name, outcome, description, probability_in_percent, expiration_date(YYYY-MM-DD)
 
+Example: [{"name": "Prediction1", ...}, {"name": "Prediction2", ...}]
 
 ## Latest Major Updates
 + Inclusion of React.
 + Prediction Table now filterable!
 + New User experience improved.
 + Mathjax updated to new Version.
++ support for up- and downloading your predictions with JSON
 
 ## Steps to Work on:
 ### Priority High
 - allow a button for callibration 2018, 2019, 2020, all, so create buttoms based on each year where predictions exists => change year by year
 
 ### Priority Medium
-- create bulk up and download
 
 ### Priority Low
 - make it so that the user lands on a page rather than waiting for the trace request
