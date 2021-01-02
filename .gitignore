@@ -38,8 +38,8 @@
 /node_modules
 /yarn-error.log
 yarn-debug.log*
-.yarn-integrity
-/app/assets/images/*
-/app/assets/traces/*
-/app/assets/json_files/*
+.yarn-integrityS
+#/app/assets/images/*
+#/app/assets/traces/*
+#/app/assets/json_files/*
 
