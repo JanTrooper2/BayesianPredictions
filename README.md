@@ -30,6 +30,7 @@ Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name"
 + New User experience improved.
 + Mathjax updated to new Version.
 + support for up- and downloading your predictions with JSON
++ Calibration for selected years
 
 ## Steps to Work on:
 ### Priority High
