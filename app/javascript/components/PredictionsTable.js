@@ -138,7 +138,12 @@ const PredictionsTable = (props) => {
           <div className="w-25">
             <button onClick={() => toggleForm()} className="btn btn-primary">Upload Predictions in JSON Format</button>
             <form className={formDisplayToggle} onSubmit={(e) => uploadData(e, jsonUploadData)}>
-              <textarea style={{height: "200px"}} onChange={(e) => setJsonUploadData(e.target.value)}/> 
+              <h5>JSON Upload format</h5>
+              <p>The entire Upload has to be encased with square brackets.</p>
+              <p>Each prediction has to be seperated by a comma.</p>
+              <p>Inside of each prediction you need to add the following value pairs: name, outcome, description, probability_in_percent, expiration_date(YYYY-MM-DD)</p>
+              <p>Example:  [{'{"name": "Prediction1", ...}, {"name": "Prediction2", ...}'}]</p>
+              <textarea className="w-100" style={{height: "200px"}} onChange={(e) => setJsonUploadData(e.target.value)}/> 
               <input type="submit" value="Submit" />
             </form>
           </div>
