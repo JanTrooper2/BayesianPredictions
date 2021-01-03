@@ -1,6 +1,6 @@
 # Welcome to Bayesian Predictions!
 This Website was created for the purpose of evaluating the accuracy of your predictions to align yourself closer with reality.
-
+Check out the live version here: https://guarded-crag-12462.herokuapp.com
 
 ## Instructions
 
