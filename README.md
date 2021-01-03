@@ -34,12 +34,12 @@ Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name"
 
 ## Steps to Work on:
 ### Priority High
-- allow a button for callibration 2018, 2019, 2020, all, so create buttoms based on each year where predictions exists => change year by year
+figure out a way to gitignore images and traces folder that still works online
 
 ### Priority Medium
 
 ### Priority Low
-- make it so that the user lands on a page rather than waiting for the trace request
+
 
 
 

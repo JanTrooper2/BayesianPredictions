@@ -1,6 +1,55 @@
 <h1>Editing Prediction</h1>
+<% prediction = @prediction %>
+<%= form_with(model: prediction, local: true) do |form| %>
+  <% if prediction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prediction.errors.count, "error") %> prohibited this prediction from being saved:</h2>
+      <ul>
+        <% prediction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= render 'form', prediction: @prediction %>
+  <div class="form-content">
+    <div class="form-group">
+      <%= label_tag(:name, "Prediction Name:") %>
+      <%= form.text_field :name, class: "form-control"%>
+    </div>
+
+    <div class="form-content">
+      <%= label_tag(:description, "Prediction Description:") %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="form-content">
+      <%= label_tag(:probability_in_percent, "Prediction Probability:") %>
+      <%= form.select(:probability_in_percent, options_for_select([[5], [10], [15], [20], [25], [30], [35], [40], [45], [50], [55], [60], [65], [70], [75], [80], [85], [90], [95]], prediction.probability_in_percent)) %>
+    </div>
+
+    <div class="form-content">
+      <%= label_tag(:expiration_date, "Prediction Expiration Date:") %>
+      <%= date_field(:prediction, :expiration_date)%>
+    </div>
+
+    <div class="form-content float-these">
+      <%= label_tag(:positive, "Positive") %>
+      <%= form.radio_button(:outcome, true) %>
+      <%= label_tag(:negative, "Negative") %>
+      <%= form.radio_button(:outcome, false) %>
+      <%= label_tag(:unresolved, "Unresolved") %>
+      <%= form.radio_button(:outcome, "") %>
+    </div>
+
+    <%= form.hidden_field(:user_id, value: current_user.id) %>
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @prediction %> |
 <%= link_to 'Back', predictions_path %>
