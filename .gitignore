@@ -42,7 +42,7 @@ yarn-debug.log*
 
 /app/assets/tmp/*
 !/app/assets/tmp/
-!/storage/.keep
+!/app/assets/tmp/.keep
 
 /app/assets/traces/*
 /app/assets/json_files/*
