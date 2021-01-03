@@ -48,14 +48,14 @@ class RequestsController < ApplicationController
 
   def get_svg()
     current_user.traces.last.open do |file| 
-      FileUtils.mv(file.path, 'app/assets/tmp_files/trace.bin')
+      FileUtils.mv(file.path, 'app/assets/tmp/trace.bin')
       RestClient.post(
         'http://badprior.com:5001/utils/posterior_predictive.svg', # need to figure out whether I should use only posterior predictive or both
-        :file => File.new('app/assets/tmp_files/trace.bin', "rb"),
+        :file => File.new('app/assets/tmp/trace.bin', "rb"),
         timeout: 15
       ) { |response, request, result, &block|
-        File.write("app/assets/tmp_files/graph.svg", response)
-        current_user.plots.attach(io: File.open("app/assets/tmp_files/graph.svg"), filename: 'plot.svg', content_type: 'image/svg+xml')
+        File.write("app/assets/tmp/graph.svg", response)
+        current_user.plots.attach(io: File.open("app/assets/tmp/graph.svg"), filename: 'plot.svg', content_type: 'image/svg+xml')
       }
     end
   end 
