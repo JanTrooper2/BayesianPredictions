@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react"
 import Select from 'react-select'
 
 const PredictionsTable = (props) => {
+  // Setup
+
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
@@ -10,31 +12,6 @@ const PredictionsTable = (props) => {
   const [jsonPredictions, setJsonPredictions] = useState();
   const [formDisplayToggle, setFormDisplayToggle] = useState("d-none");
   const [jsonUploadData, setJsonUploadData] = useState();
-
-  useEffect(() => {
-    let paramString = "";
-    if (outcome !== "all") {
-      paramString += "outcome=" + outcome + "&";
-    }
-    if (amount !== "null") {
-      paramString += "amount=" + amount;
-    }
-    fetch(`/api?${paramString}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-  }, [amount, outcome])
 
   const amountOptions = [
     { value: 20, label: '20' },
@@ -47,10 +24,9 @@ const PredictionsTable = (props) => {
     { value: 160, label: '160' },
     { value: 180, label: '180' },
     { value: 200, label: '200' },
-    { value: "null", label: 'all' },
+    { value: "all", label: 'all' },
 
   ]
-
   const outcomeOptions = [
     {value: "null", label: 'only unresolved'},
     {value: "both", label: 'only resolved'},
@@ -59,12 +35,10 @@ const PredictionsTable = (props) => {
     {value: "all", label: 'all'},
   ]
 
-  const serializeData = (objects) => {
-    let formattedArray = objects.map(x => {
-      return ({name: x.name, description: x.description, probability_in_percent: x.probability_in_percent, outcome: x.outcome, expiration_date: x.expiration_date});
-    })
-    setJsonPredictions(JSON.stringify(formattedArray));
-  }
+  useEffect(() => {
+    refresh();
+  }, [])
+
   const toggleForm = () => {
     if (formDisplayToggle == "d-none"){
       setFormDisplayToggle("d-block")
@@ -73,12 +47,40 @@ const PredictionsTable = (props) => {
     }
   }
 
+  //Fetching Data
+
+  useEffect(() => {
+    refresh();
+  }, [amount, outcome])
+
+  function refresh() {
+    fetch(`/api?outcome=${outcome}&amount=${amount}`)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        setIsLoaded(true);
+        setItems(result);
+      },
+      (error) => {
+        setIsLoaded(true);
+        setError(error);
+      }
+    )
+  }
+
+  //Handling Data
+
+  const serializeData = (objects) => {
+    let formattedArray = objects.map(x => {
+      return ({name: x.name, description: x.description, probability_in_percent: x.probability_in_percent, outcome: x.outcome, expiration_date: x.expiration_date});
+    })
+    setJsonPredictions(JSON.stringify(formattedArray));
+  }
+
+
   const uploadData = (e, data) => {
     e.preventDefault();
     toggleForm();
-    //e.textarea.target.value = "";
-    //console.log(e.target.children[1].value);
-    //console.log(data.trim());
     fetch('/api', {
       method: 'POST',
       headers: {
@@ -89,7 +91,7 @@ const PredictionsTable = (props) => {
     })
   }
 
-
+  //Displaying Data
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
