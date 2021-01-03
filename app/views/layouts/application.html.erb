@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="h-100">
   <head>
     <title>Bayesian Predictions</title>
     <%= csrf_meta_tags %>
@@ -24,24 +24,20 @@
 
   </head>
 
-  <body style="background: thistle;">
-    <div style="background: lavender" class="container">
-      <nav>
-        <ul class="nav bg-primary d-flex justify-content-between">
-          <li>
-            <a href="/" class="btn text-white bg-gradient-primary">Bayesian Predictions</a>
-          </li>
-          <li>            
-            <% if user_signed_in? %>
-              <%= link_to "#{current_user.email}", "/profile/#{current_user.id}", class: "btn text-center text-white bg-gradient-primary" %>
-              <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "btn text-white bg-gradient-primary" %>
-            <% else %>
-              <%= link_to "Login", new_user_session_path, class: "text-white btn btn-info" %>
-              <%= link_to "Sign Up", new_user_registration_path, class: "text-white btn btn-success" %>
-            <% end %>
-          </li>
-        </ul>
-      </nav>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a href="/" class="btn text-white bg-gradient-primary">Bayesian Predictions</a>
+          <% if user_signed_in? %>
+            <%= link_to "#{current_user.email}", "/profile/#{current_user.id}", class: "btn text-center text-white bg-gradient-primary" %>
+            <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "btn text-white bg-gradient-primary" %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path, class: "text-white btn btn-info" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "text-white btn btn-success" %>
+          <% end %>
+        </nav>
+      </header>
       <main style="min-height: 96vh">
         <%= yield %>
       </main>
