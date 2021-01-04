@@ -15,15 +15,8 @@ const PredictionsTable = (props) => {
 
   const amountOptions = [
     { value: 20, label: '20' },
-    { value: 40, label: '40' },
-    { value: 60, label: '60' },
-    { value: 80, label: '80' },
+    { value: 50, label: '50' },
     { value: 100, label: '100' },
-    { value: 120, label: '120' },
-    { value: 140, label: '140' },
-    { value: 160, label: '160' },
-    { value: 180, label: '180' },
-    { value: 200, label: '200' },
     { value: "all", label: 'all' },
 
   ]
@@ -47,6 +40,21 @@ const PredictionsTable = (props) => {
     }
   }
 
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px dotted pink',
+      color: state.isSelected ? 'lime' : 'blue',
+      padding: 20,
+      backgroundColor: "gray",
+    }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = 'opacity 300ms';
+  
+      return { ...provided, opacity, transition };
+    }
+  }
   //Fetching Data
 
   useEffect(() => {
@@ -99,11 +107,13 @@ const PredictionsTable = (props) => {
   } else {
     return (
       <React.Fragment>
-        <div className="filter-selectors">
-          Amount: <Select defaultValue={amountOptions[0]} name="amountSelector" onChange={(e) => setAmount(e.value)} options={amountOptions} />
-          Outcome: <Select defaultValue={outcomeOptions[0]} name="outcomeSelector" onChange={(e) => setOutcome(e.value)} options={outcomeOptions} />
-          <br></br>
-          <br></br>
+        <div className="filter-selectors pb-3 d-flex justify-content-center">
+          <div className="align-middle px-3 w-50">
+            Amount <Select styles={customStyles} defaultValue={amountOptions[0]} name="amountSelector" onChange={(e) => setAmount(e.value)} options={amountOptions} />
+          </div>
+          <div className="align-middle w-50 px-3">
+            Outcome <Select styles={customStyles} defaultValue={outcomeOptions[0]} name="outcomeSelector" onChange={(e) => setOutcome(e.value)} options={outcomeOptions} />    
+          </div>
         </div>
         <table className="table table-hover" >
           <thead className="thead-dark">

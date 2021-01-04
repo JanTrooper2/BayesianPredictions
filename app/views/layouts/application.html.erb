@@ -25,22 +25,25 @@
   </head>
 
   <body class="d-flex h-100 text-center text-white bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
+    <div class="cover-container d-flex w-100 h-100 p-3 flex-column">
+      <header class="">
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a href="/" class="btn text-white bg-gradient-primary">Bayesian Predictions</a>
+          <a href="/" class="btn m-1 text-white bg-gradient-primary">Bayesian Predictions</a>
           <% if user_signed_in? %>
-            <%= link_to "#{current_user.email}", "/profile/#{current_user.id}", class: "btn text-center text-white bg-gradient-primary" %>
-            <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "btn text-white bg-gradient-primary" %>
+            <%= link_to "#{current_user.email}", "/profile/#{current_user.id}", class: "btn m-1 text-center text-white bg-gradient-primary" %>
+            <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "btn m-1 text-white bg-gradient-primary" %>
           <% else %>
-            <%= link_to "Login", new_user_session_path, class: "text-white btn btn-info" %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "text-white btn btn-success" %>
+            <%= link_to "Login", new_user_session_path, class: "text-white btn m-1 btn-info" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "text-white m-1 btn btn-success" %>
           <% end %>
         </nav>
       </header>
-      <main style="min-height: 96vh">
+      <main class="px-3 pt-3">
         <%= yield %>
       </main>
+      <footer class="mt-auto text-white-50">
+        <p>Created by <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jan-goergens" class="text-white">Jan Görgens</a></p>
+      </footer>
     </div>
   </body>
 </html>
