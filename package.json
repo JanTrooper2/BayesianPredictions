@@ -1,5 +1,11 @@
 {
-  "name": "BayesianPredictions",
+  "name": "bayesian-predictions",
+  "description": "My package.json file for this application.",
+  "license": "MIT",
+  "author": {
+    "name": "Jan Görgens"
+  },
+  "repository": "https://github.com/JanTrooper2/BayesianPredictions",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.12.10",
