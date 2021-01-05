@@ -75,7 +75,6 @@ const PredictionsTable = (props) => {
       }
     )
   }
-
   //Handling Data
 
   const serializeData = (objects) => {
@@ -106,7 +105,8 @@ const PredictionsTable = (props) => {
     return <div>Loading...</div>;
   } else {
     return (
-      <React.Fragment>
+      <React.Fragment className="container-lg">
+        {/* Filter */}
         <div className="filter-selectors pb-3 d-flex justify-content-center">
           <div className="align-middle px-3 w-50">
             Amount <Select styles={customStyles} defaultValue={amountOptions[0]} name="amountSelector" onChange={(e) => setAmount(e.value)} options={amountOptions} />
@@ -115,49 +115,51 @@ const PredictionsTable = (props) => {
             Outcome <Select styles={customStyles} defaultValue={outcomeOptions[0]} name="outcomeSelector" onChange={(e) => setOutcome(e.value)} options={outcomeOptions} />    
           </div>
         </div>
-        <table className="table table-hover" >
+        {/* Table */}
+        <table className="container-lg table table-hover" >
           <thead className="thead-dark">
             <tr key="headRow">
-              <th scope="col" colSpan="1">Name</th>
-              <th scope="col" colSpan="1">Probability</th>
-              <th scope="col" colSpan="1">Expiration Date</th>
-              <th scope="col" colSpan="1">Outcome</th>
-              <th scope="col" colSpan="1"></th>
+              <th className="" scope="col" colSpan="1">Name</th>
+              <th className=""scope="col" colSpan="1">Probability</th>
+              {/* <th className="" scope="col" colSpan="1">Expiration Date</th> */}
+              <th className="" scope="col" colSpan="1">Buttons</th>
             </tr>
           </thead>
 
           <tbody>
             {items.map(item => (
-              <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>{item.probability_in_percent}</td>
-                <td>{item.expiration_date}</td>
-                <td>{item.outcome == null ? "TBD" : String(item.outcome)}</td>
-                <td className="d-flex justify-content-between">
-                  <a href={`/predictions/${item.id}`} className="btn btn-info">Show</a>
+              <tr className={item.outcome == null ? "bg-secondary" : (item.outcome == true ? "bg-success" : "bg-danger")} key={item.id}>
+                <td className="" >{item.name}</td>
+                <td className="">{item.probability_in_percent + "%"}</td>
+                {/* <td className="">{item.expiration_date}</td> */}
+                <td className="">
+                  <a href={`/predictions/${item.id}`} className="float-left btn btn-info">Show</a>
                   <a href={`/predictions/${item.id}/edit`} className="btn btn-warning">Edit</a>
-                  <a data-confirm="Are you sure?" data-method="delete" href={`/predictions/${item.id}`} className="btn btn-danger">Destroy</a>
+                  <a data-confirm="Are you sure?" data-method="delete" href={`/predictions/${item.id}`} className="float-right btn btn-danger">Destroy</a>
                 </td>
               </tr>
               ))}
           </tbody>
         </table>
-        <div className="d-flex justify-content-around">
-          <div className="w-25">
-            <button onClick={() => serializeData(items)} className="btn btn-success">Download Predictions in JSON Format</button>
-            <p style={{maxHeight: "200px"}} className="overflow-auto"> {jsonPredictions}</p>
-          </div>
-          <div className="w-25">
-            <button onClick={() => toggleForm()} className="btn btn-primary">Upload Predictions in JSON Format</button>
-            <form className={formDisplayToggle} onSubmit={(e) => uploadData(e, jsonUploadData)}>
-              <h5>JSON Upload format</h5>
-              <p>The entire Upload has to be encased with square brackets.</p>
-              <p>Each prediction has to be seperated by a comma.</p>
-              <p>Inside of each prediction you need to add the following value pairs: name(with quotation marks), outcome(without quotation marks), description(with quotation marks), probability_in_percent(without quotation marks), expiration_date(YYYY-MM-DD (without quotation marks))</p>
-              <p>Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name": "Prediction2","expiration_date": 2020-05-05, ...}'}]</p>
-              <textarea className="w-100" style={{height: "200px"}} onChange={(e) => setJsonUploadData(e.target.value)}/> 
-              <input type="submit" value="Submit" />
-            </form>
+        {/* JSON */}
+        <div className="d-none d-lg-block">
+          <div className="d-flex justify-content-around">
+            <div className="w-25">
+              <button onClick={() => serializeData(items)} className="btn btn-success">Download Predictions in JSON Format</button>
+              <p style={{maxHeight: "200px"}} className="overflow-auto"> {jsonPredictions}</p>
+            </div>
+            <div className="w-25">
+              <button onClick={() => toggleForm()} className="btn btn-primary px-5">Upload Predictions in JSON Format</button>
+              <form className={formDisplayToggle} onSubmit={(e) => uploadData(e, jsonUploadData)}>
+                <h5>JSON Upload format</h5>
+                <p>The entire Upload has to be encased with square brackets.</p>
+                <p>Each prediction has to be seperated by a comma.</p>
+                <p>Inside of each prediction you need to add the following value pairs: name(with quotation marks), outcome(without quotation marks), description(with quotation marks), probability_in_percent(without quotation marks), expiration_date(YYYY-MM-DD (without quotation marks))</p>
+                <p>Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name": "Prediction2","expiration_date": 2020-05-05, ...}'}]</p>
+                <textarea className="w-100" style={{height: "200px"}} onChange={(e) => setJsonUploadData(e.target.value)}/> 
+                <input type="submit" value="Submit" />
+              </form>
+            </div>
           </div>
         </div>
       </React.Fragment>

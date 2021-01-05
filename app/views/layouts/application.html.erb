@@ -2,47 +2,52 @@
 <html lang="en" class="h-100">
   <head>
     <title>Bayesian Predictions</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Rails Imports -->
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <script script>
-      MathJax = {
-        tex: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-          processEscapes: true
-        },
-        svg: {
-          fontCache: 'global',
-        }
-      };
-  </script>
-  <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <!-- Math Setups -->
+      <script script>
+          MathJax = {
+            tex: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            },
+            svg: {
+              fontCache: 'global',
+            }
+          };
+      </script>
+      <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   </head>
 
   <body class="d-flex h-100 text-center text-white bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 flex-column">
-      <header class="">
+    <div class="cover-container d-flex w-100 h-100 flex-column">
+      <header class="pt-2">
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a href="/" class="btn m-1 text-white bg-gradient-primary">Bayesian Predictions</a>
+          <a href="/" class="btn text-white bg-gradient-primary">Bayesian Predictions</a>
           <% if user_signed_in? %>
-            <%= link_to "#{current_user.email}", "/profile/#{current_user.id}", class: "btn m-1 text-center text-white bg-gradient-primary" %>
-            <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "btn m-1 text-white bg-gradient-primary" %>
+            <%= link_to "#{current_user.email}", "/profile/#{current_user.id}", class: "btn text-center text-white bg-gradient-primary" %>
+            <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "btn text-white bg-gradient-primary" %>
           <% else %>
-            <%= link_to "Login", new_user_session_path, class: "text-white btn m-1 btn-info" %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "text-white m-1 btn btn-success" %>
+            <%= link_to "Login", new_user_session_path, class: "text-white btn btn-info" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "text-white btn btn-success" %>
           <% end %>
         </nav>
       </header>
-      <main class="px-3 pt-3">
+      <main class="container-lg px-1 pt-3">
         <%= yield %>
       </main>
       <footer class="mt-auto text-white-50">
-        <p>Created by <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jan-goergens" class="text-white">Jan Görgens</a></p>
+        <p>Copyright © 2020 <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jan-goergens" class="text-white">Jan Görgens</a></p>
       </footer>
     </div>
   </body>
