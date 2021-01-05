@@ -47,13 +47,7 @@ const PredictionsTable = (props) => {
       color: state.isSelected ? 'lime' : 'blue',
       padding: 20,
       backgroundColor: "gray",
-    }),
-    singleValue: (provided, state) => {
-      const opacity = state.isDisabled ? 0.5 : 1;
-      const transition = 'opacity 300ms';
-  
-      return { ...provided, opacity, transition };
-    }
+    })
   }
   //Fetching Data
 
@@ -119,23 +113,25 @@ const PredictionsTable = (props) => {
         <table className="container-lg table table-hover" >
           <thead className="thead-dark">
             <tr key="headRow">
-              <th className="" scope="col" colSpan="1">Name</th>
-              <th className=""scope="col" colSpan="1">Probability</th>
-              {/* <th className="" scope="col" colSpan="1">Expiration Date</th> */}
-              <th className="" scope="col" colSpan="1">Buttons</th>
+              <th scope="col" colSpan="1">Name</th>
+              <th scope="col" colSpan="1">Probability</th>
+              <th className="d-none d-lg-table-cell" scope="col" colSpan="1">Expiration Date</th>
+              <th scope="col" colSpan="1"></th>
             </tr>
           </thead>
 
           <tbody>
             {items.map(item => (
               <tr className={item.outcome == null ? "bg-secondary" : (item.outcome == true ? "bg-success" : "bg-danger")} key={item.id}>
-                <td className="" >{item.name}</td>
-                <td className="">{item.probability_in_percent + "%"}</td>
-                {/* <td className="">{item.expiration_date}</td> */}
+                <td>{item.name}</td>
+                <td>{item.probability_in_percent + "%"}</td>
+                <td className="d-none d-lg-table-cell">{item.expiration_date}</td>
                 <td className="">
                   <a href={`/predictions/${item.id}`} className="float-left btn btn-info">Show</a>
-                  <a href={`/predictions/${item.id}/edit`} className="btn btn-warning">Edit</a>
-                  <a data-confirm="Are you sure?" data-method="delete" href={`/predictions/${item.id}`} className="float-right btn btn-danger">Destroy</a>
+                  <div className="d-none d-lg-block">
+                    <a href={`/predictions/${item.id}/edit`} className="btn btn-warning">Edit</a>
+                    <a data-confirm="Are you sure?" data-method="delete" href={`/predictions/${item.id}`} className="float-right btn btn-danger">Destroy</a>
+                  </div>
                 </td>
               </tr>
               ))}

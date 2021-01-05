@@ -1,5 +1,4 @@
-<br>
-<div>
+<div class="px-1">
   <h5>Posterior predictive</h5>
   <p>This is your calibration curve with uncertainties, also called the posterior predictive $p(y^{*}|y)$</p>
   <p>It is created using this model:</p>
@@ -20,8 +19,10 @@
 </div>
 
 <% @plot.open do |file| %>
-  <%= show_svg(file.path) %>
+  <div class="only-this-svg">
+    <%= show_svg(file.path) %>
+  </div>
 <% end %>
 <p>To learn more about the model you can read these two blog posts about bayesian calibration and prediction: <%= link_to 'Bayesian Prediction and Calibration 1', "http://badprior.com:5001/blog/bayesian-prediction-and-calibration-1/" %> and <%= link_to 'Bayesian Prediction and Calibration 2', "http://badprior.com:5001/blog/bayesian-prediction-and-calibration-2/" %>.</p>
-<p><%= link_to 'Back', requests_path %></p>
+<p><%= link_to 'Back', requests_path, class: "btn btn-secondary text-white" %></p>
 
