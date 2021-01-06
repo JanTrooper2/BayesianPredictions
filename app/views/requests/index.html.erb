@@ -1,6 +1,8 @@
-<div class="py-1">
-  <%= button_to "Show Latest Calibration (Created at: #{@plots.last.created_at.to_date})", request_path(@plots.last), method: "get", class: "btn btn-success"  %>
-</div>
+<% if !@plots[0].nil? %>
+  <div class="py-1">
+    <%= button_to "Show Latest Calibration\n(Created at: #{@plots.last.created_at.to_date})", request_path(@plots.last), method: "get", class: "btn btn-success"  %>
+  </div>
+<% end %>
 <%= react_component("Calibration", {plots: @ids}) %>
 <div class="py-1">
   <%= button_to 'Back', predictions_path, method: "get", class: "btn btn-secondary" %>
