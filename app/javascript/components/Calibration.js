@@ -1,9 +1,10 @@
 import React, {useState} from "react"
 import Select from 'react-select'
 
-const Calibration = () => {
+const Calibration = (props) => {
   const [year, setYear] = useState(0);
   const [formDisplayToggle, setFormDisplayToggle] = useState("d-none");
+  const [oldCalibrationsToggle, setOldCalibrationsToggle] = useState("d-none");
 
   const request_picture = (e) => {
     e.preventDefault();
@@ -30,15 +31,28 @@ const Calibration = () => {
       backgroundColor: "gray",
     })
   }
-
+  const links = []
+  props.plots.forEach((id, index) => {
+    links.push(<li key={id}><a href={`requests/${id}`}>{index + 1}. Calibration</a></li>)
+  })
   return (
     <React.Fragment>
-      <button onClick={() => setFormDisplayToggle("d-block")} className="btn btn-primary">Calibrate</button>
-      <div className="Request-Form pt-2">
-        <form className={formDisplayToggle} onSubmit={(e) => request_picture(e)}>
-          Year:<Select styles={customStyles} className="pb-2" defaultValue={yearOptions[0]} name="yearSelector" onChange={(e) => setYear(e.value)} options={yearOptions} />
-          <input className="btn btn-success" type="submit" value="Submit" />
-        </form>
+      <div className="py-1">
+        <button onClick={() => oldCalibrationsToggle == "d-none" ? setOldCalibrationsToggle("d-block") : setOldCalibrationsToggle("d-none")} className="btn my-2 btn-warning">Previous Calibrations</button>
+        <div className={oldCalibrationsToggle}>
+          <ul>
+            {links}
+          </ul>
+        </div>
+      </div>
+      <div className="py-1">
+        <button onClick={() => formDisplayToggle == "d-none" ? setFormDisplayToggle("d-block") : setFormDisplayToggle("d-none")} className="btn btn-primary">Calibrate</button>
+        <div className="Request-Form py-1">
+          <form className={formDisplayToggle} onSubmit={(e) => request_picture(e)}>
+            Year:<Select styles={customStyles} className="py-2" defaultValue={yearOptions[0]} name="yearSelector" onChange={(e) => setYear(e.value)} options={yearOptions} />
+            <input className="btn btn-success" type="submit" value="Submit" />
+          </form>
+        </div>
       </div>
     </React.Fragment>
   )

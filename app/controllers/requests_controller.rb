@@ -5,6 +5,10 @@ require 'open-uri'
 class RequestsController < ApplicationController
   def index
     @plots = current_user.plots
+    @ids = @plots.map do |plot|
+      plot.id
+    end
+    @ids.pop
   end
   
   def show

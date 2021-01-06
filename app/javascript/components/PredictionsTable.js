@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import Select from 'react-select'
 
-const PredictionsTable = (props) => {
+const PredictionsTable = () => {
   // Setup
 
   const [error, setError] = useState(null);
@@ -99,7 +99,7 @@ const PredictionsTable = (props) => {
     return <div>Loading...</div>;
   } else {
     return (
-      <React.Fragment className="container-lg">
+      <React.Fragment>
         {/* Filter */}
         <div className="filter-selectors pb-3 d-flex justify-content-center">
           <div className="align-middle px-3 w-50">

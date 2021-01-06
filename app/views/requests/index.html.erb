@@ -1,6 +1,7 @@
-<br>
-<% @plots.each_with_index do |plot, index| %>
-  <%= link_to "Show #{index + 1}, Date: #{plot.created_at}", request_path(plot) %><br>
-<% end %><br>
-<%= react_component("Calibration", {}) %>
-<p><%= button_to 'Back', predictions_path, method: "get", class: "btn btn-secondary" %></p>
+<div class="py-1">
+  <%= button_to "Show Latest Calibration (Created at: #{@plots.last.created_at.to_date})", request_path(@plots.last), method: "get", class: "btn btn-success"  %>
+</div>
+<%= react_component("Calibration", {plots: @ids}) %>
+<div class="py-1">
+  <%= button_to 'Back', predictions_path, method: "get", class: "btn btn-secondary" %>
+</div>
