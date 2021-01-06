@@ -34,10 +34,10 @@ const Calibration = () => {
   return (
     <React.Fragment>
       <button onClick={() => setFormDisplayToggle("d-block")} className="btn btn-primary">Calibrate</button>
-      <div className="Request-Form">
+      <div className="Request-Form pt-2">
         <form className={formDisplayToggle} onSubmit={(e) => request_picture(e)}>
-          Year:<Select styles={customStyles} defaultValue={yearOptions[0]} name="yearSelector" onChange={(e) => setYear(e.value)} options={yearOptions} />
-          <input className="btn btn-success pt-1" type="submit" value="Submit" />
+          Year:<Select styles={customStyles} className="pb-2" defaultValue={yearOptions[0]} name="yearSelector" onChange={(e) => setYear(e.value)} options={yearOptions} />
+          <input className="btn btn-success" type="submit" value="Submit" />
         </form>
       </div>
     </React.Fragment>
