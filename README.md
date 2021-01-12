@@ -34,7 +34,10 @@ Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name"
 
 ## Steps to Work on:
 ### Priority High
-figure out a way to gitignore images and traces folder that still works online
+highlight expired and non expired active predictions
+add column for category
+add predictions specified by category
+implement page system with offset(xyz)
 
 ### Priority Medium
 

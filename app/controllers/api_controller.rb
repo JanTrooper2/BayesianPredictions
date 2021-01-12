@@ -12,7 +12,7 @@ class ApiController < ApplicationController
         prediction.outcome == ActiveModel::Type::Boolean.new.cast(params[:outcome])
       end
     }
-    @predictions = @predictions.first(params[:amount].to_i) unless params[:amount] == "all"
+    @predictions = @predictions.last(params[:amount].to_i) unless params[:amount] == "all"
     render json: @predictions
   end
 

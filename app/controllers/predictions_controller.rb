@@ -74,7 +74,12 @@ class PredictionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def prediction_params
-      params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id, :expiration_date, :outcome)
+      if params[:prediction][:new_category].empty?
+        params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id, :expiration_date, :outcome, :category)
+      else 
+        params[:prediction][:category] = params[:prediction][:new_category]
+        params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id, :expiration_date, :outcome, :category)
+      end
     end
 
     def serialize_predictions(predictions, output)
