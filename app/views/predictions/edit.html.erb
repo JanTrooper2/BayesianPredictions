@@ -48,7 +48,6 @@
     </div>
 
     <%= form.hidden_field(:user_id, value: current_user.id) %>
-
   </div>
 
   <div class="actions">
@@ -57,5 +56,5 @@
   </div>
 <% end %>
 
-<%= link_to 'Show', @prediction %> |
-<%= link_to 'Back', predictions_path %>
+<%= link_to 'Show', @prediction, class:"btn btn-warning" %> |
+<%= link_to 'Back', predictions_path, class:"btn btn-secondary" %>
