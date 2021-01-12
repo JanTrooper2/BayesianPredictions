@@ -27,6 +27,7 @@ class ApiController < ApplicationController
   private
 
   
+  
   # def params 
   #   params.permit(:hi);
   # end
