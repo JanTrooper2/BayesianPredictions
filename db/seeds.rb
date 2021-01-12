@@ -12,7 +12,7 @@ require 'open-uri'
 User.create(email: "developer@testing.com", password: 123456, username: "DeveloperAcc") if User.find_by(email: "developer@testing.com").nil?
 
 def create_prediction(title, description, probability, outcome)
-  Prediction.create(name: title, description: description, probability_in_percent: probability, outcome: outcome, user_id: User.find_by(email: "developer@testing.com").id, expiration_date: "2018-12-31")
+  Prediction.create(category: title, name: title, description: description, probability_in_percent: probability, outcome: outcome, user_id: User.find_by(email: "developer@testing.com").id, expiration_date: "2018-12-31")
 end
 
 def open_and_read_file
