@@ -12,6 +12,7 @@ const PredictionsTable = () => {
   const [jsonPredictions, setJsonPredictions] = useState();
   const [formDisplayToggle, setFormDisplayToggle] = useState("d-none");
   const [jsonUploadData, setJsonUploadData] = useState();
+  const [pageOffset, setPageOffset] = useState(0);
 
   const amountOptions = [
     { value: 20, label: '20' },
@@ -53,15 +54,15 @@ const PredictionsTable = () => {
 
   useEffect(() => {
     refresh();
-  }, [amount, outcome])
+  }, [amount, outcome, pageOffset])
 
   function refresh() {
-    fetch(`/api?outcome=${outcome}&amount=${amount}`)
+    fetch(`/api?outcome=${outcome}&amount=${amount}&pageOffset=${pageOffset}`)
     .then(res => res.json())
     .then(
       (result) => {
         setIsLoaded(true);
-        setItems(result.reverse());
+        setItems(result);
       },
       (error) => {
         setIsLoaded(true);
@@ -123,7 +124,7 @@ const PredictionsTable = () => {
 
           <tbody>
             {items.map(item => (
-              <tr className={item.outcome == null ? (Date.parse(item.expiration_date) < new Date() ? "bg-lightSalmon" : "bg-secondary") : (item.outcome == true ? "bg-success" : "bg-danger")} key={item.id}>
+              <tr className={item.outcome == null ? (Date.parse(item.expiration_date) < new Date() ? "table-warning" : "table-secondary") : (item.outcome == true ? "table-success" : "table-danger")} key={item.id}>
                 <td>{item.category}</td>
                 <td className="d-none d-lg-table-cell">{item.name}</td>
                 <td>{item.probability_in_percent + "%"}</td>
@@ -134,6 +135,10 @@ const PredictionsTable = () => {
               </tr>
               ))}
           </tbody>
+          <tfoot colSpan="10" className="d-flex w-100 justify-content-around py-3">
+            <button onClick={() => setPageOffset(pageOffset < amount ? 0 : pageOffset - amount)} className="btn btn-primary">Previous Page</button>
+            <button onClick={() => setPageOffset(items.length < amount ? pageOffset : pageOffset + amount)} className="btn btn-primary">Next Page</button>
+          </tfoot>
         </table>
         {/* JSON */}
         <div className="d-none d-lg-block">

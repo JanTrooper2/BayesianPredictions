@@ -11,8 +11,8 @@ class ApiController < ApplicationController
       else
         prediction.outcome == ActiveModel::Type::Boolean.new.cast(params[:outcome])
       end
-    }
-    @predictions = @predictions.last(params[:amount].to_i) unless params[:amount] == "all"
+    }.reverse
+    @predictions = @predictions[params[:pageOffset].to_i, params[:amount].to_i] unless params[:amount] == "all"
     render json: @predictions
   end
 
