@@ -135,11 +135,11 @@ const PredictionsTable = () => {
               </tr>
               ))}
           </tbody>
-          <tfoot colSpan="10" className="d-flex w-100 justify-content-around py-3">
-            <button onClick={() => setPageOffset(pageOffset < amount ? 0 : pageOffset - amount)} className="btn btn-primary">Previous Page</button>
-            <button onClick={() => setPageOffset(items.length < amount ? pageOffset : pageOffset + amount)} className="btn btn-primary">Next Page</button>
-          </tfoot>
         </table>
+        <div name="Table Page Control" className="d-flex justify-content-center py-3">
+            <button onClick={() => setPageOffset(pageOffset < amount ? 0 : pageOffset - amount)} className="btn btn-primary mx-2">Previous Page</button>
+            <button onClick={() => setPageOffset(items.length < amount ? pageOffset : pageOffset + amount)} className="btn btn-primary mx-2">Next Page</button>
+        </div>
         {/* JSON */}
         <div className="d-none d-lg-block">
           <div className="d-flex justify-content-around">
