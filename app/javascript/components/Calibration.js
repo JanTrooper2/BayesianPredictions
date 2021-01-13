@@ -29,7 +29,7 @@ const Calibration = (props) => {
   props.categories.forEach(category => {
     categoryOptions.push({value: category, label: category})
   })
-  
+
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
@@ -59,6 +59,8 @@ const Calibration = (props) => {
           <form className={formDisplayToggle} onSubmit={(e) => request_picture(e)}>
             Year:<Select styles={customStyles} className="py-2" defaultValue={yearOptions[0]} name="yearSelector" onChange={(e) => setYear(e.value)} options={yearOptions} />
             Category:<Select styles={customStyles} className="py-2" defaultValue={categoryOptions[0]} name="yearSelector" onChange={(e) => setCategory(e.value)} options={categoryOptions} />
+            <h4 className="text-danger"><b>WARNING!</b></h4>
+            <h4>The Calibration Process takes anywhere from 20 seconds to 2 minutes.</h4>
             <input className="btn btn-success" type="submit" value="Submit" />
           </form>
         </div>
