@@ -56,6 +56,9 @@ const PredictionsTable = () => {
   useEffect(() => {
     refresh();
   }, [amount, outcome, pageOffset, predictionsOrder])
+  useEffect(() => {
+    setPageOffset(0);
+  }, [predictionsOrder])
 
   function refresh() {
     fetch(`/api?outcome=${outcome}&amount=${amount}&pageOffset=${pageOffset}&predictionsOrder=${predictionsOrder}`)
