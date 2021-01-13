@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    @predictions = current_user.predictions.select { |prediction| 
+    @predictions = current_user.predictions.order(params[:predictionsOrder]).select { |prediction| 
       if params[:outcome] == "both"
         prediction.outcome != nil
       elsif params[:outcome] == "null"
@@ -11,7 +11,7 @@ class ApiController < ApplicationController
       else
         prediction.outcome == ActiveModel::Type::Boolean.new.cast(params[:outcome])
       end
-    }.reverse
+    }
     @predictions = @predictions[params[:pageOffset].to_i, params[:amount].to_i] unless params[:amount] == "all"
     render json: @predictions
   end

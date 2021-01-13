@@ -13,6 +13,7 @@ const PredictionsTable = () => {
   const [formDisplayToggle, setFormDisplayToggle] = useState("d-none");
   const [jsonUploadData, setJsonUploadData] = useState();
   const [pageOffset, setPageOffset] = useState(0);
+  const [predictionsOrder, setPredictionsOrder] = useState("created_at DESC");
 
   const amountOptions = [
     { value: 20, label: '20' },
@@ -54,10 +55,10 @@ const PredictionsTable = () => {
 
   useEffect(() => {
     refresh();
-  }, [amount, outcome, pageOffset])
+  }, [amount, outcome, pageOffset, predictionsOrder])
 
   function refresh() {
-    fetch(`/api?outcome=${outcome}&amount=${amount}&pageOffset=${pageOffset}`)
+    fetch(`/api?outcome=${outcome}&amount=${amount}&pageOffset=${pageOffset}&predictionsOrder=${predictionsOrder}`)
     .then(res => res.json())
     .then(
       (result) => {
@@ -114,10 +115,10 @@ const PredictionsTable = () => {
         <table className="container-lg table table-hover" >
           <thead className="thead-dark">
             <tr key="headRow">
-              <th scope="col" colSpan="1">Category</th>
-              <th className="d-none d-lg-table-cell" scope="col" colSpan="1">Name</th>
-              <th scope="col" colSpan="1">Probability</th>
-              <th className="d-none d-lg-table-cell" scope="col" colSpan="1">Expiration Date</th>
+              <th scope="col" colSpan="1">Category<button className="ml-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "category ASC" ?  "category DESC": "category ASC")}>⇵</button></th>
+              <th className="d-none d-lg-table-cell" scope="col" colSpan="1">Name<button className="ml-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "name ASC" ?  "name DESC": "name ASC")}>⇵</button></th>
+              <th scope="col" colSpan="1">Probability<button className="ml-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "probability_in_percent ASC" ?  "probability_in_percent DESC": "probability_in_percent ASC")}>⇵</button></th>
+              <th className="d-none d-lg-table-cell" scope="col" colSpan="1">Expiration Date<button className="ml-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "expiration_date ASC" ?  "expiration_date DESC": "expiration_date ASC")}>⇵</button></th>
               <th scope="col" colSpan="3"></th>
             </tr>
           </thead>
