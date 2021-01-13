@@ -1,6 +1,5 @@
-<%= @user.email %><br />
 <% if @user.avatar.attached? %>
   <%= image_tag @user.avatar, size: "480x270" %>
 <% end %>
-<p><%= link_to 'Edit Profile', edit_user_registration_path %></p>
-<p><%= link_to 'Back', predictions_path %></p>
+<p><%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-warning text-dark mt-2" %></p>
+<p><%= link_to 'Back', predictions_path, class: "btn btn-secondary text-white" %></p>

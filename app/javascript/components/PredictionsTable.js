@@ -130,9 +130,9 @@ const PredictionsTable = () => {
                 <td className="d-none d-lg-table-cell">{item.name}</td>
                 <td>{item.probability_in_percent + "%"}</td>
                 <td className="d-none d-lg-table-cell">{item.expiration_date}</td>
-                <td><a href={`/predictions/${item.id}`} className="btn btn-info">Show</a></td>
-                <td className="d-none d-lg-table-cell"><a href={`/predictions/${item.id}/edit`} className="btn btn-warning">Edit</a></td>
-                <td className="d-none d-lg-table-cell"><a data-confirm="Are you sure?" data-method="delete" href={`/predictions/${item.id}`} className="btn btn-danger">Destroy</a></td>
+                <td><a href={`/predictions/${item.id}`} className="btn btn-info text-dark">Show</a></td>
+                <td className="d-none d-lg-table-cell"><a href={`/predictions/${item.id}/edit`} className="btn btn-warning text-dark">Edit</a></td>
+                <td className="d-none d-lg-table-cell"><a data-confirm="Are you sure?" data-method="delete" href={`/predictions/${item.id}`} className="btn btn-danger text-dark">Destroy</a></td>
               </tr>
               ))}
           </tbody>
@@ -157,7 +157,7 @@ const PredictionsTable = () => {
                 <p>Inside of each prediction you need to add the following value pairs: name(with quotation marks), outcome(without quotation marks), description(with quotation marks), probability_in_percent(without quotation marks), expiration_date(YYYY-MM-DD (without quotation marks))</p>
                 <p>Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name": "Prediction2","expiration_date": 2020-05-05, ...}'}]</p>
                 <textarea className="w-100" style={{height: "200px"}} onChange={(e) => setJsonUploadData(e.target.value)}/> 
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" className="btn btn-success text-white" />
               </form>
             </div>
           </div>
