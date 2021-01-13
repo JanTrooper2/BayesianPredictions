@@ -18,13 +18,16 @@ class RequestsController < ApplicationController
   def new
     percentage_arr = []
     outcome_arr = []
-    selected_predictions = (params[:year].to_i == 0 || params[:year].nil?) ? current_user.predictions : current_user.predictions.select{|prediction|
+    selected_predictions = (params[:year] == "0" || params[:year].nil?) ? current_user.predictions : current_user.predictions.select{|prediction|
       prediction.expiration_date.year == params[:year].to_i
+    }
+    selected_predictions = (params[:category] == "all" || params[:category].nil?) ? selected_predictions : selected_predictions.select{|prediction|
+      prediction.category == params[:category]
     }
     selected_predictions.each do |prediction| 
       next if prediction.outcome.nil?
       if prediction.probability_in_percent < 50
-        percentage_arr.append(((1 - prediction.probability_in_percent) * 0.01).round(2))
+        percentage_arr.append(((100 - prediction.probability_in_percent) * 0.01).round(2))
         prediction.outcome ? outcome_arr.append(0) : outcome_arr.append(1)
       else
         percentage_arr.append((prediction.probability_in_percent * 0.01).round(2))

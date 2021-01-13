@@ -18,7 +18,6 @@ class ApiController < ApplicationController
 
 
   def create
-    #puts params[:_json][0][:name]
     string = params[:_json]
     params[:_json].map{|object|
       Prediction.create(name: object[:name], description: object[:description], probability_in_percent: object[:probability_in_percent], expiration_date: object[:expiration_date], outcome: object[:outcome], user_id: current_user.id,)

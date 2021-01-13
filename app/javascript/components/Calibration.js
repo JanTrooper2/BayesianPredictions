@@ -3,12 +3,13 @@ import Select from 'react-select'
 
 const Calibration = (props) => {
   const [year, setYear] = useState(0);
+  const [category, setCategory] = useState("all");
   const [formDisplayToggle, setFormDisplayToggle] = useState("d-none");
   const [oldCalibrationsToggle, setOldCalibrationsToggle] = useState("d-none");
 
   const request_picture = (e) => {
     e.preventDefault();
-    window.location.replace(`/requests/new?year=${year}`);
+    window.location.replace(`/requests/new?year=${year}&category=${category}`);
   }
 
   const yearOptions = [
@@ -22,6 +23,13 @@ const Calibration = (props) => {
     { value: 2021, label: '2021' },
   ]
 
+  const categoryOptions = [
+    {value: "all", label: 'all' },
+  ]
+  props.categories.forEach(category => {
+    categoryOptions.push({value: category, label: category})
+  })
+  
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
@@ -37,19 +45,20 @@ const Calibration = (props) => {
   })
   return (
     <React.Fragment>
-      <div className="py-1">
-        <button onClick={() => oldCalibrationsToggle == "d-none" ? setOldCalibrationsToggle("d-block") : setOldCalibrationsToggle("d-none")} className="btn my-2 btn-warning">Previous Calibrations</button>
+      <div name="Previous Calibrations" className="py-1">
+        <button onClick={() => setOldCalibrationsToggle(oldCalibrationsToggle == "d-none" ? "d-block" : "d-none")} className="btn my-2 btn-warning">Previous Calibrations</button>
         <div className={oldCalibrationsToggle}>
           <ul>
             {links}
           </ul>
         </div>
       </div>
-      <div className="py-1">
-        <button onClick={() => formDisplayToggle == "d-none" ? setFormDisplayToggle("d-block") : setFormDisplayToggle("d-none")} className="btn btn-primary">Calibrate</button>
+      <div name="New Calibration" className="py-1">
+        <button onClick={() => setFormDisplayToggle(formDisplayToggle == "d-none" ? "d-block" : "d-none")} className="btn btn-primary">Calibrate</button>
         <div className="Request-Form py-1">
           <form className={formDisplayToggle} onSubmit={(e) => request_picture(e)}>
             Year:<Select styles={customStyles} className="py-2" defaultValue={yearOptions[0]} name="yearSelector" onChange={(e) => setYear(e.value)} options={yearOptions} />
+            Category:<Select styles={customStyles} className="py-2" defaultValue={categoryOptions[0]} name="yearSelector" onChange={(e) => setCategory(e.value)} options={categoryOptions} />
             <input className="btn btn-success" type="submit" value="Submit" />
           </form>
         </div>
