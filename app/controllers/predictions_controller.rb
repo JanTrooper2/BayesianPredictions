@@ -74,7 +74,7 @@ class PredictionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def prediction_params
-      if params[:prediction][:new_category].empty?
+      if params[:prediction][:new_category].nil? || params[:prediction][:new_category].empty?  
         params.require(:prediction).permit(:name, :description, :probability_in_percent, :user_id, :expiration_date, :outcome, :category)
       else 
         params[:prediction][:category] = params[:prediction][:new_category]
