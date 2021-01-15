@@ -57,8 +57,8 @@ const Calibration = (props) => {
         <button onClick={() => setFormDisplayToggle(formDisplayToggle == "d-none" ? "d-block" : "d-none")} className="btn btn-primary">Calibrate</button>
         <div className="Request-Form py-1">
           <form className={formDisplayToggle} onSubmit={(e) => request_picture(e)}>
-            Year:<Select styles={customStyles} className="py-2" defaultValue={yearOptions[0]} name="yearSelector" onChange={(e) => setYear(e.value)} options={yearOptions} />
-            Category:<Select styles={customStyles} className="py-2" defaultValue={categoryOptions[0]} name="yearSelector" onChange={(e) => setCategory(e.value)} options={categoryOptions} />
+            Year:<Select isSearchable={ false } inputProps={{readOnly:true}} styles={customStyles} className="py-2" defaultValue={yearOptions[0]} name="yearSelector" onChange={(e) => setYear(e.value)} options={yearOptions} />
+            Category:<Select isSearchable={ false } inputProps={{readOnly:true}} styles={customStyles} className="py-2" defaultValue={categoryOptions[0]} name="yearSelector" onChange={(e) => setCategory(e.value)} options={categoryOptions} />
             <h4 className="text-danger"><b>WARNING!</b></h4>
             <h4>The Calibration Process takes anywhere from 20 seconds to 2 minutes.</h4>
             <input className="btn btn-success" type="submit" value="Submit" />

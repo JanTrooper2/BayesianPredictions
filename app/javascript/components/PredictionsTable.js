@@ -108,10 +108,10 @@ const PredictionsTable = () => {
         {/* Filter */}
         <div className="filter-selectors pb-3 d-flex justify-content-center">
           <div className="align-middle px-3 w-50">
-            Amount <Select styles={customStyles} defaultValue={amountOptions[0]} name="amountSelector" onChange={(e) => setAmount(e.value)} options={amountOptions} />
+            Amount <Select isSearchable={ false } inputProps={{readOnly:true}} styles={customStyles} defaultValue={amountOptions[0]} name="amountSelector" onChange={(e) => setAmount(e.value)} options={amountOptions} />
           </div>
           <div className="align-middle w-50 px-3">
-            Outcome <Select styles={customStyles} defaultValue={outcomeOptions[0]} name="outcomeSelector" onChange={(e) => setOutcome(e.value)} options={outcomeOptions} />    
+            Outcome <Select isSearchable={ false } inputProps={{readOnly:true}} styles={customStyles} defaultValue={outcomeOptions[0]} name="outcomeSelector" onChange={(e) => setOutcome(e.value)} options={outcomeOptions} />    
           </div>
         </div>
         {/* Table */}
