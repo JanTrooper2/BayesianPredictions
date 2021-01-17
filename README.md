@@ -27,22 +27,10 @@ Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name"
 ## Latest Major Updates
 + Inclusion of React.
 + Prediction Table now filterable!
-+ New User experience improved.
++ Prediction Table now sortable
 + Mathjax updated to new Version.
 + support for up- and downloading your predictions with JSON
 + Calibration for selected years
-
-## Steps to Work on:
-### Priority High
-highlight expired and non expired active predictions
-add column for category
-add predictions specified by category
-implement page system with offset(xyz)
-
-### Priority Medium
-
-### Priority Low
-
 
 
 
