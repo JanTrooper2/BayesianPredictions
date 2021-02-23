@@ -1,6 +1,6 @@
 # Welcome to Bayesian Predictions!
 This Website was created for the purpose of evaluating the accuracy of your predictions to align yourself closer with reality.
-Check out the live version here: https://guarded-crag-12462.herokuapp.com
+Check out the live version here: https://bayesianpredictions.herokuapp.com
 
 ## Instructions
 
@@ -31,14 +31,6 @@ Example:  [{'{"name": "Prediction1", "probability_in_percent": 10, ...}, {"name"
 + Mathjax updated to new Version.
 + support for up- and downloading your predictions with JSON
 + Calibration for selected years
-
-
-
-## Important Links
-
-- https://guides.rubyonrails.org/active_storage_overview.html
-- https://s3.console.aws.amazon.com/s3/buckets/bayesian-predictions?region=eu-central-1&tab=objects
-- https://github.com/rest-client/rest-client
 
 
 ## Copyright
