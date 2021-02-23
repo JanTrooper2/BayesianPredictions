@@ -1,2 +1,3 @@
 //= link_directory ../stylesheets .css
-//= link_directory ../images favicon.png
+//= link_direktory ../../javascript
+//= link_tree ../images
