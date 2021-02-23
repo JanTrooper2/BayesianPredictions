@@ -47,3 +47,10 @@ yarn-debug.log*
 /app/assets/traces/*
 /app/assets/json_files/*
 
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
