@@ -1,3 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
-@import "../stylesheets/predictions.scss";
-// @import "../stylesheets/scaffolds.scss";
+
+.bg-gray{
+  background-color: $gray-700;
+}
+.bg-lightSalmon{
+  background-color: lightsalmon;
+}
+
+.only-this-svg svg {width: 90%; height: auto;}
+@media only screen and (min-width: 1200px) {
+  .only-this-svg svg {width: 50%; height: auto;}
+}

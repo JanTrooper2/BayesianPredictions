@@ -8,4 +8,5 @@ webpackConfig.plugins.unshift(
     jquery: 'jquery',
     Popper: ['popper.js', 'default']
 }))
+//webpackConfig.loaders.delete('nodeModules')
 module.exports = webpackConfig

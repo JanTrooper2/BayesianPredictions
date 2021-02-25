@@ -117,11 +117,11 @@ const PredictionsTable = () => {
         {/* Table */}
         <table className="container-lg table table-hover" >
           <thead className="thead-dark">
-            <tr key="headRow">
-              <th scope="col" colSpan="1">Category<button className="ml-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "category ASC" ?  "category DESC": "category ASC")}>⇵</button></th>
-              <th className="d-none d-lg-table-cell" scope="col" colSpan="1">Name<button className="ml-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "name ASC" ?  "name DESC": "name ASC")}>⇵</button></th>
-              <th scope="col" colSpan="1">Probability<button className="ml-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "probability_in_percent ASC" ?  "probability_in_percent DESC": "probability_in_percent ASC")}>⇵</button></th>
-              <th className="d-none d-lg-table-cell" scope="col" colSpan="1">Expiration Date<button className="ml-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "expiration_date ASC" ?  "expiration_date DESC": "expiration_date ASC")}>⇵</button></th>
+            <tr className="text-white" key="headRow">
+              <th scope="col" colSpan="1">Category<button className="mx-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "category ASC" ?  "category DESC": "category ASC")}>⇵</button></th>
+              <th className="d-none d-lg-table-cell" scope="col" colSpan="1">Name<button className="mx-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "name ASC" ?  "name DESC": "name ASC")}>⇵</button></th>
+              <th scope="col" colSpan="1">Probability<button className="mx-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "probability_in_percent ASC" ?  "probability_in_percent DESC": "probability_in_percent ASC")}>⇵</button></th>
+              <th className="d-none d-lg-table-cell" scope="col" colSpan="1">Expiration Date<button className="mx-2 btn-secondary" onClick={() => setPredictionsOrder(predictionsOrder == "expiration_date ASC" ?  "expiration_date DESC": "expiration_date ASC")}>⇵</button></th>
               <th scope="col" colSpan="3"></th>
             </tr>
           </thead>

@@ -44,8 +44,8 @@ const Calibration = (props) => {
     links.push(<li key={id}><a href={`requests/${id}`}>{index + 1}. Calibration</a></li>)
   })
   return (
-    <React.Fragment>
-      <div name="Previous Calibrations" className="py-1">
+    <div className="d-flex flex-column">
+      <div name="Previous Calibrations" className="py-1 mx-auto">
         <button onClick={() => setOldCalibrationsToggle(oldCalibrationsToggle == "d-none" ? "d-block" : "d-none")} className="btn my-2 btn-warning">Previous Calibrations</button>
         <div className={oldCalibrationsToggle}>
           <ul>
@@ -53,7 +53,7 @@ const Calibration = (props) => {
           </ul>
         </div>
       </div>
-      <div name="New Calibration" className="py-1">
+      <div name="New Calibration" className="py-1 mx-auto">
         <button onClick={() => setFormDisplayToggle(formDisplayToggle == "d-none" ? "d-block" : "d-none")} className="btn btn-primary">Calibrate</button>
         <div className="Request-Form py-1">
           <form className={formDisplayToggle} onSubmit={(e) => request_picture(e)}>
@@ -65,7 +65,7 @@ const Calibration = (props) => {
           </form>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   )
 }
 

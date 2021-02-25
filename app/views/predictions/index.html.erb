@@ -1,6 +1,8 @@
-<h1>Predictions</h1>
-<p><%= button_to 'New Prediction', new_prediction_path, method: "get", class: "btn btn-primary" %></p>
-<%= react_component("PredictionsTable", {}) %>
-<p><%= button_to 'Calibration', requests_path, method: "get", class: "btn btn-primary" %></p>
-<p><%= button_to 'Back', root_path, method: "get", class: "btn btn-secondary" %></p>
+<div id="pred-table" class="d-flex flex-column">
+  <h1 class="mx-auto">Predictions</h1>
+  <span class="mx-auto my-2"><%= button_to 'New Prediction', new_prediction_path, method: "get", class: "btn btn-primary" %></span>
+  <%= react_component("PredictionsTable", {}) %>
+  <span class="mx-auto my-2"><%= button_to 'Calibration', requests_path, method: "get", class: "btn btn-primary" %></span>
+  <span class="mx-auto my-2"><%= button_to 'Back', root_path, method: "get", class: "btn btn-secondary" %></span>
+</div>
 
