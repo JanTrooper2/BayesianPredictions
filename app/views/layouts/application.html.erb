@@ -5,14 +5,13 @@
     <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <%#= favicon_link_tag 'favicon.ico', type: 'image/icon' %>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
 
     <!-- Rails Imports -->
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= favicon_pack_tag 'favicon.ico', type: 'image/icon' %>
     <!-- Math Setups -->
       <script script>
           MathJax = {
@@ -29,9 +28,8 @@
 
   </head>
 
-  <body class="d-flex h-100 text-center text-white bg-dark">
-    <div class="cover-container d-flex w-100 h-100 flex-column">
-      <header class="pt-2">
+  <body id="appBody" class="container-lg bg-dark text-white">
+      <header class="">
         <nav class="nav nav-masthead justify-content-center float-md-end">
           <a href="/" class="btn text-white bg-gradient-primary">Bayesian Predictions</a>
           <% if user_signed_in? %>
@@ -43,12 +41,11 @@
           <% end %>
         </nav>
       </header>
-      <main class="container-lg px-1 pt-3">
+      <main class="container-lg">
         <%= yield %>
       </main>
-      <footer class="mt-auto text-white-50">
-        <p>Copyright © 2021 <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jan-goergens" class="text-white">Jan Görgens</a></p>
+      <footer class="mt-5 d-flex justify-content-center">
+        <p>Copyright © 2021 <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jan-goergens">Jan Görgens</a></p>
       </footer>
-    </div>
   </body>
 </html>
