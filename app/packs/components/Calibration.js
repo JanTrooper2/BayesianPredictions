@@ -41,16 +41,16 @@ const Calibration = (props) => {
   }
   const links = []
   props.plots.forEach((id, index) => {
-    links.push(<li key={id}><a href={`requests/${id}`}>{index + 1}. Calibration</a></li>)
+    links.push(<li key={id}><a href={`requests/${id}`}>Requested: {props.dates[index]}</a></li>)//actually shows date just haven't updated variables
   })
   return (
     <div className="d-flex flex-column">
       <div name="Previous Calibrations" className="py-1 mx-auto">
         <button onClick={() => setOldCalibrationsToggle(oldCalibrationsToggle == "d-none" ? "d-block" : "d-none")} className="btn my-2 btn-warning">Previous Calibrations</button>
         <div className={oldCalibrationsToggle}>
-          <ul>
+          <ol>
             {links}
-          </ul>
+          </ol>
         </div>
       </div>
       <div name="New Calibration" className="py-1 mx-auto">

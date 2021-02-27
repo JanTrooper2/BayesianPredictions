@@ -1,11 +1,12 @@
 <div class="d-flex flex-column text-center">
   <h1><u>Welcome to Bayesian Predicitons!</u></h1>
+  
   <h2>Dashboard</h2>
-  <div> 
-    <p>You have <%= @predictions.length %> predictions.</p>
-    <p><%= @fullfilled.length %> out of those are fullfilled.</p>
-    <p><%= @uncertain.length %> out of those are still pending.</p>
-    <%= button_to "Your Predictions", predictions_path, method: "get", class:"btn btn-primary my-2" %>
-  </div>
+  <p>You have <%= @predictions.length %> predictions.</p>
+  <p><%= @fullfilled.length %> out of those are fullfilled.</p>
+  <p><%= @uncertain.length %> out of those are still pending.</p>
+  <%= button_to "Your Predictions", predictions_path, method: "get", class:"btn btn-primary my-2" %>
 
+  <h2>Account</h2>
+  <%= button_to "Manage Account Settings", "/profile/#{current_user.id}", method: "get", class:"btn btn-primary my-2" %>
 </div>

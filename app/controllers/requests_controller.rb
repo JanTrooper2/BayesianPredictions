@@ -8,11 +8,15 @@ class RequestsController < ApplicationController
     @ids = @plots.map do |plot|
       plot.id
     end
+    @dates = @plots.map do |plot|
+      plot.created_at.strftime("%d/%m/%Y" + " at " + "%k:%M") 
+    end
     @ids.pop
   end
   
   def show
     @plot = current_user.plots.find_by id: (params[:id].to_i)
+    @id = params[:id]
   end
 
   def new
@@ -42,6 +46,11 @@ class RequestsController < ApplicationController
       @message = "Error, you need at least 10 Expired Predictions."
     end
   end
+  def destroy
+    # implement garabage collection for traces
+    current_user.plots.find_by(id: params[:id]).delete
+    redirect_to requests_path, notice: 'Calibration Plot was successfully destroyed.'
+  end
 
   def get_trace(percentages, outcomes)
     raw = RestClient::Request.execute(
@@ -66,5 +75,6 @@ class RequestsController < ApplicationController
       }
     end
   end 
+
 end
 
