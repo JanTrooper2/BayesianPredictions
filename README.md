@@ -4,17 +4,17 @@ Check out the live version here: https://bayesianpredictions.herokuapp.com
 
 ## Instructions
 
-You need to create a user account in order to use this website. (Currently there is no Email verification.)
+Create a new account or login to your existing account.
+If you don't want to create an account, you can use this guest account: Email: guest@user.com Password: guestuser
 
-Once you are logged in you will see all the predictions you made that are unresolved. You can create new ones, update your existing ones or delete them.
+You will be redirected to your dashboard where you can see your predictions or change your account settings.
 
-You can click on expired predictions to see all your resolved predictions.
+With the prediction table, you are able to filter your predictions or create new ones.
 
-You can evaluate all your resolved predictions by clicking Calibrate. (You need at least 10 resolved predictions.)
-You can make a trace request or see your previously requested evaluations. 
-You will receive the Posterior Predictive of the Bayesian Logistic Model made by Jan Christian Refsgaard.
-The black line is the perfect predictor, the blue line shows your position.
+If you would like to calibrate the accuracy of your predictions, click the "Calibration" button which will lead you to the Calibration page.
+There you can click on Calibrate (You need at least 10 resolved predictions.) or see your previous calibrations.
 
+After you click calibrate, you will receive the Posterior Predictive of the Bayesian Logistic Model made by Jan Christian Refsgaard.
 
 
 ## JSON Upload format
