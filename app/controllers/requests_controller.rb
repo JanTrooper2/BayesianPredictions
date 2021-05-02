@@ -55,7 +55,7 @@ class RequestsController < ApplicationController
   def get_trace(percentages, outcomes)
     raw = RestClient::Request.execute(
       method: :get,
-      url: "http://badprior.com:5001/utils/get_trace?samples=2000&x=#{percentages}&y=#{outcomes}",
+      url: "http://badprior.com:5000/utils/get_trace?samples=2000&x=#{percentages}&y=#{outcomes}",
       raw_response: true,
       timeout: 60
     )
@@ -66,7 +66,7 @@ class RequestsController < ApplicationController
     current_user.traces.last.open do |file| 
       FileUtils.mv(file.path, 'app/assets/tmp/trace.bin')
       RestClient.post(
-        'http://badprior.com:5001/utils/posterior_predictive.svg', # need to figure out whether I should use only posterior predictive or both
+        'http://badprior.com:5000/utils/posterior_predictive.svg', # need to figure out whether I should use only posterior predictive or both
         :file => File.new('app/assets/tmp/trace.bin', "rb"),
         timeout: 15
       ) { |response, request, result, &block|
