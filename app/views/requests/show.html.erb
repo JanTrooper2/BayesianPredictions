@@ -1,5 +1,10 @@
 <div class="px-1 d-flex flex-column">
-  <h5>Posterior predictive</h5>
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-primary" role="alert">
+      <%= msg %>
+    </div>
+  <% end %>
+  <h5 class="text-center">Posterior predictive</h5>
   <p>This is your calibration curve with uncertainties, also called the posterior predictive $p(y^{*}|y)$</p>
   <p>It is created using this model:</p>
   <p>
@@ -18,16 +23,19 @@
 
 </div>
 <% @plot.open do |file| %>
-  <div class="only-this-svg">
+  <div class="only-this-svg d-flex flex-column align-items-center">
     <%= show_svg(file.path)%>
   </div>
 <% end %>
 
 <p>The black line is the perfect predictor, the blue line shows your position relative to it.</p>
 <p>To learn more about the model you can read these two blog posts about bayesian calibration and prediction: <%= link_to 'Bayesian Prediction and Calibration 1', "http://badprior.com:5001/blog/bayesian-prediction-and-calibration-1/" %> and <%= link_to 'Bayesian Prediction and Calibration 2', "http://badprior.com:5001/blog/bayesian-prediction-and-calibration-2/" %>.</p>
-<p><%= link_to 'Back', requests_path, class: "btn btn-secondary text-white" %></p>
-<hr>
-<p><%= link_to 'Delete', request_path(@id), method: "delete", class: "btn btn-danger text-white", data: {confirm: "Are you sure you want to delete this Calibration?" } %></p>
+<div class="d-flex flex-column align-items-center">
+  <%= link_to 'Back', requests_path, class: "btn btn-secondary text-white align-self-center" %>
+  <hr class="w-100">
+  <%= link_to 'Delete', request_path(@id), method: "delete", class: "btn btn-danger text-white", data: {confirm: "Are you sure you want to delete this Calibration?" } %>
+</div>
+
 
 
 
