@@ -1,4 +1,9 @@
 <div class="d-flex flex-column">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-primary" role="alert">
+      <%= msg %>
+    </div>
+  <% end %>
   <% if !@plots[0].nil? %>
     <div class="py-1 mx-auto">
       <%= button_to "Show Latest Calibration\n(Created at: #{@plots.last.created_at.to_date})", request_path(@plots.last), method: "get", class: "btn btn-success"  %>

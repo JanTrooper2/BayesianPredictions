@@ -39,9 +39,12 @@ class RequestsController < ApplicationController
       end
     end
     if percentage_arr.length > 9
-      get_trace(percentage_arr.join(","), outcome_arr.join(","))
-      get_svg()
-      @message = "Successfull!"
+      if (get_trace(percentage_arr.join(","), outcome_arr.join(","))) 
+        get_svg()
+        redirect_to request_path(current_user.plots.last), notice: 'Calibration Plot was successfully created!'
+      else
+        redirect_to requests_path, notice: 'An error occured while creating the Calibration Plot.'
+      end
     else
       @message = "Error, you need at least 10 Expired Predictions."
     end
@@ -53,13 +56,19 @@ class RequestsController < ApplicationController
   end
 
   def get_trace(percentages, outcomes)
-    raw = RestClient::Request.execute(
-      method: :get,
-      url: "http://badprior.com:5000/utils/get_trace?samples=2000&x=#{percentages}&y=#{outcomes}",
-      raw_response: true,
-      timeout: 60
-    )
-    current_user.traces.attach(io: File.open(raw.file.path), filename: 'trace.bin', content_type: 'application/octet-stream')
+    begin
+      raw = RestClient::Request.execute(
+        method: :get,
+        url: "http://badprior.com:5000/utils/get_trace?samples=2000&x=#{percentages}&y=#{outcomes}",
+        raw_response: true,
+        timeout: 40
+      )
+    rescue
+      return false
+    else
+      current_user.traces.attach(io: File.open(raw.file.path), filename: 'trace.bin', content_type: 'application/octet-stream')
+      return true
+    end
   end
 
   def get_svg()
